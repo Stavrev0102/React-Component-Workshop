@@ -26,6 +26,8 @@ body {
 .navbar__menu {
   position: relative;
   display: flex;
+  list-style: none;
+
 }
 .navbar__link {
   position: relative;

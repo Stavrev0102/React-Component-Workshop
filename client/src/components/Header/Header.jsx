@@ -1,5 +1,10 @@
 
 import '../Header/Header.css'
+import 'feather-icons/dist/feather';
+import feather from 'feather-icons';
+
+feather.replace();
+
 
 export default function Header() {
     return (
