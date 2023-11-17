@@ -1,15 +1,15 @@
-import Footer from "./components/Footer"
-import Header from "./components/Header"
-import UserList from "./components/UserList";
+import Footer from "./components/Footer/Footer"
+import Header from "./components/Header/Header";
+import './App.css';
 
 function App() {
 
   return (
-    <div>
-      <Header />
+
+    <div className="root">
+      <Header className="header" />
 
       <main className="main">
-        <UserList/>
       </main>
       
       <Footer />

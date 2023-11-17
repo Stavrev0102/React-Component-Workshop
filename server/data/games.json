@@ -1,0 +1,26 @@
+{
+     "9f90d867-bf39-4170-bdab-06a600a52e32":{
+        "title": "Need for speed 2",
+        "category": "Race",
+        "maxLevel": "52",
+        "imageUrl": "https://i.ytimg.com/vi/Y2JpoQQSmf4/maxresdefault.jpg",
+        "summary": "The best game ever! kdqwifjwifjwifjweifjwief",
+        "_id": "9f90d867-bf39-4170-bdab-06a600a52e32"
+    },
+     "7b90c962-b198-4c65-8dec-7f182eeac3d1":{
+        "title": "Mine Craft",
+        "category": "Building",
+        "maxLevel": "7",
+        "imageUrl": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000000964/811461b8d1cacf1f2da791b478dccfe2a55457780364c3d5a95fbfcdd4c3086f",
+        "summary": "In this game ypu can create your own world!",
+        "_id": "7b90c962-b198-4c65-8dec-7f182eeac3d1"
+    },
+     "97664f07-bd23-4d40-acb4-79aae42c27e2":{
+        "title": "Counter-Strike 1.6",
+        "category": "War",
+        "maxLevel": "1",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/67/Counter-Strike_Box.jpg",
+        "summary": "This is Counter-Strike game.Ypu can create ypur own team and go agains terrorists...",
+        "_id": "97664f07-bd23-4d40-acb4-79aae42c27e2"
+    }
+}
