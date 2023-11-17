@@ -2,6 +2,16 @@ import Footer from "./components/Footer/Footer"
 import Header from "./components/Header/Header";
 import Spinner from "./components/Spinner/Spinner";
 import './App.css';
+// index.js or App.jsx
+// index.js or App.jsx
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Home from "./components/Home/Home";
+import Catalog from "./components/Catalog/Catalog";
+
+library.add(fab);
+
 
 function App() {
 
@@ -11,9 +21,11 @@ function App() {
       <Header className="header" />
 
       <main className="main">
+       <Home/>
+       <Catalog/>
       </main>
       
-      <Footer />
+      <Footer className="footer"/>
     </div>
   );
 }

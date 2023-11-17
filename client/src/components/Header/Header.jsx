@@ -22,38 +22,38 @@ export default function Header() {
           </li>
           <li className="navbar__item">
             <a href="#" className="navbar__link">
-              <i data-feather="message-square" />
-              <span>Messages</span>
+              <i data-feather="target" />
+              <span>Catalog</span>
             </a>
           </li>
           <li className="navbar__item">
             <a href="#" className="navbar__link">
-              <i data-feather="users" />
-              <span>Customers</span>
+              <i data-feather="user" />
+              <span>Profile</span>
             </a>
           </li>
           <li className="navbar__item">
             <a href="#" className="navbar__link">
-              <i data-feather="folder" />
-              <span>Projects</span>
+              <i data-feather="log-in" />
+              <span>Login</span>
             </a>
           </li>
           <li className="navbar__item">
             <a href="#" className="navbar__link">
-              <i data-feather="archive" />
-              <span>Resources</span>
+              <i data-feather="user-plus" />
+              <span>Register</span>
             </a>
           </li>
           <li className="navbar__item">
             <a href="#" className="navbar__link">
-              <i data-feather="help-circle" />
-              <span>Help</span>
+              <i data-feather="log-out" />
+              <span>Logout</span>
             </a>
           </li>
           <li className="navbar__item">
             <a href="#" className="navbar__link">
-              <i data-feather="settings" />
-              <span>Settings</span>
+              <i data-feather="file-plus" />
+              <span>Create</span>
             </a>
           </li>
         </ul>
