@@ -2,11 +2,18 @@
 import '../Header/Header.css'
 import 'feather-icons/dist/feather';
 import feather from 'feather-icons';
+import{Link} from 'react-router-dom';
+
 
 feather.replace();
 
 
 export default function Header() {
+
+  const logoutHandler = (e) => {
+    e.preventDefault();
+    console.log('logout');
+  }
     return (
       <div className="header">
       <div className="header__logo">
@@ -15,46 +22,46 @@ export default function Header() {
       <nav className="navbar">
         <ul className="navbar__menu">
           <li className="navbar__item">
-            <a href="#" className="navbar__link">
+            <Link to="/" className="navbar__link">
               <i data-feather="home" />
               <span>Home</span>{" "}
-            </a>
+            </Link>
           </li>
           <li className="navbar__item">
-            <a href="#" className="navbar__link">
+            <Link to="/catalog" className="navbar__link">
               <i data-feather="target" />
               <span>Catalog</span>
-            </a>
+            </Link>
           </li>
           <li className="navbar__item">
-            <a href="#" className="navbar__link">
+            <Link to="/profile" className="navbar__link">
               <i data-feather="user" />
               <span>Profile</span>
-            </a>
+            </Link>
           </li>
           <li className="navbar__item">
-            <a href="#" className="navbar__link">
+            <Link to="/login" className="navbar__link">
               <i data-feather="log-in" />
               <span>Login</span>
-            </a>
+            </Link>
           </li>
           <li className="navbar__item">
-            <a href="#" className="navbar__link">
+            <Link to="/register" className="navbar__link">
               <i data-feather="user-plus" />
               <span>Register</span>
-            </a>
+            </Link>
           </li>
           <li className="navbar__item">
-            <a href="#" className="navbar__link">
+            <a onClick={logoutHandler} className="navbar__link">
               <i data-feather="log-out" />
               <span>Logout</span>
             </a>
           </li>
           <li className="navbar__item">
-            <a href="#" className="navbar__link">
+            <Link to="/create" className="navbar__link">
               <i data-feather="file-plus" />
               <span>Create</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
