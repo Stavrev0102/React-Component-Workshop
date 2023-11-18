@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 export default function Login () {
     return (
       <section className={styles.home}>
-        <div className="form_container">
+        <div className={styles.formContainer}>
           <i className="uil uil-times form_close" />
           {/* Login From */}
           <div className={styles.formLoginForm}>
@@ -29,9 +29,9 @@ export default function Login () {
                 <i className="uil uil-eye-slash pw_hide" />
               </div>
               <button className={styles.button} role='button'>Login Now</button>
-              <div className="login_signup">
+              <div className={styles.login_signup}>
                 Don't have an account?{" "}
-                <Link to="/register" id="signup">
+                <Link to="/register" id="signup" >
                   Signup
                 </Link>
               </div>

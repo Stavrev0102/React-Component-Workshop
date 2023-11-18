@@ -1,4 +1,101 @@
 
-.registerText {
-    border: 4px solid blue;
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+.home {
+   background-image: url('https://as2.ftcdn.net/v2/jpg/04/93/49/37/1000_F_493493706_jP0lDchc8vMySihawHZG1RPvLOnJ1iqs.jpg');
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+   /* aspect-ratio: 16/9; */
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   justify-content:center;
+   /* margin-bottom: 2em;s */
+   display: flex;
+}
+.formContainer {
+    display: flex;
+    flex-direction: column;
+}
+.formLoginForm {
+    border: 4px solid white;
+    border-radius: 0.5em;
+    margin: 0 30%;
+    padding: 5em 0 ;
+    display: flex;
+    flex-direction: column;
+}
+.form {
+    text-align: center;
+}
+.titleLogin {
+    color: rgb(255, 255, 255);
+    font-family:'Share Tech Mono', monospace;
+    font-size: 3em;
+    padding: 0.4em;
+    font-weight: bold;
+
+}
+.inputBox {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding: 1em;
+    margin: 0 2em;
+    font-size: 1em;
+    color: black;
+    font-weight: bold;
+    border-radius: 0.3em;
+
+}
+    /* <!-- HTML !-->
+<button class="button-9" role="button">Button 9</button> */
+.sign_up {
+    color: rgb(244, 244, 244);
+}
+/* CSS */
+.button{
+  appearance: button;
+  backface-visibility: hidden;
+  background-color:#AE3ECF;
+  border-radius: 6px;
+  border-width: 0;
+  box-shadow: rgba(50, 50, 93, .1) 0 0 0 5px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+  font-size: 100%;
+  height: 44px;
+  line-height: 1.15;
+  margin: 12px 0 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transform: translateZ(0);
+  transition: all .2s,box-shadow .08s ease-in;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 82%;
+  margin-bottom: 1em;
+}
+
+.button:disabled {
+  cursor: default;
+}
+
+.button:hover {
+  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
+}
+.login_signup {
+    color: white;
+    font-size: 1.2em;
 }

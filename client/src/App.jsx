@@ -4,7 +4,6 @@ import Spinner from "./components/Spinner/Spinner";
 import './App.css';
 import { Routes,Route } from 'react-router-dom';
 
-
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
