@@ -1,3 +1,41 @@
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+.section {
+    /* border: 2px solid blue; */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8zMF9hbl9hYnN0cmFjdF92aXN1YWxpemF0aW9uX29mX2FfYmxvY2tjaGFpbl9uZV80ZWIwODVmNC0yODFlLTRkYTMtYjdlMS00MmY1ZTFkMDkyM2VfMS5qcGc.jpg");
+    background-size: 1300px 1000px;
+    background-repeat: no-repeat;
+}
+.title {
+    font-family: 'Share Tech Mono', monospace;
+    color: aliceblue;
+    font-size: 3em;
+    margin-bottom: 2em;
+}
 .homeText{
-    border: 5px solid red;
+    color: white;
+    font-size: 2.5em;
+    font-weight: bold;
+    font-family: 'Share Tech Mono', monospace;
+    padding: 0.3em;
+}
+.imageBox {
+display: block;
+width: 30%;
+}
+img {
+    display: block;
+    width: 100%;
+    height: auto;
 }

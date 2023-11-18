@@ -1,4 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
-.loginText {
-    border: 4px solid rgb(117, 87, 87);
+.home {
+   background-image: url('https://www.codingnepalweb.com/demos/website-login-registration-form-html-css/bg.jpg');
+   background-repeat: no-repeat;
+   background-size: 100% auto;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   justify-content:center;
+   /* margin-bottom: 2em;s */
+}
+.formLoginForm {
+    border: 2px solid white;
+    border-radius: 0.5em;
+    margin: 0 30%;
+    padding: 5em 0 ;
+}
+.form {
+    text-align: center;
+}
+.titleLogin {
+    color: white;
+    font-family:'Share Tech Mono', monospace;
+    font-size: 2em;
+    padding: 0.4em;
+    font-weight: bold;
+    
+
 }
