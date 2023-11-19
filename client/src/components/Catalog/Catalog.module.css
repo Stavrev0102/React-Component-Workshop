@@ -9,9 +9,18 @@
   }
   
   .card img {
-    margin: auto;
-    height: 290px;
-    width: 95%;
+    height: auto;
+    width: 100%;
+    display: block;
+  }
+  .imageBox{
+    border: 1px solid red;
+    flex: 1 1 auto;
+  }
+  .desciprionBox {
+    border: 1px solid red;
+    flex: 1 1 auto;
+    width: 100%;
   }
   
   .cardWrapper {
@@ -34,8 +43,9 @@
     flex-wrap: wrap;
     justify-content: center;
     max-width: 23%;
-    height: 500px;
+    height: auto;
     margin: 25px auto;
+    padding: 10px 0;
     background-color: white;
     border-radius: 5px;
     border: 2px ridge rgb(210, 208, 208);
@@ -66,3 +76,4 @@
     padding: 10px;
     margin: auto;
   }
+  

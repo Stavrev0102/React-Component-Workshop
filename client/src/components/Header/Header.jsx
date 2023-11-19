@@ -60,7 +60,7 @@ export default function Header() {
           <li className="navbar__item">
             <Link to="/create" className="navbar__link">
               <i data-feather="file-plus" />
-              <span>Create</span>
+              <span>Add</span>
             </Link>
           </li>
         </ul>

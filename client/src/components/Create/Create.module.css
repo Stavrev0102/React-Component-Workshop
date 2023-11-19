@@ -1,4 +1,44 @@
 
-.createText {
-    border: 4px solid black;
+.create {
+    border: 1px solid red;
+    height: 80vh;
+}
+.form {
+border: 1px solid blue;
+}
+.createForm{
+text-align: center;
+}
+
+.firstColumn {
+border: 3px solid black;
+display: flex;
+flex-wrap: wrap;
+flex: 1 1 auto;
+}
+.column {
+    display: flex;
+    gap: 1em;
+    text-align: center;
+    justify-content: center;
+}
+.secondColumn {
+    border: 3px solid red;
+}
+textarea{
+    padding: 1em;
+    margin: 0 2em;
+    width: 50%;
+    font-size: 1em;
+    color: black;
+    font-weight: bold;
+    border-radius: 0.3em;
+}
+button {
+   width: 30%;
+   padding: 1em 0;
+    font-size: 1em;
+    text-align: center;
+    margin: 1em;
+    background-color: rgb(218, 191, 242);
 }

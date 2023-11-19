@@ -11,27 +11,38 @@ export default function SingleItem({
     imageUrl,
 }){
     return (
+        <>
         <li className={styles.card}>
+        <div className={styles.from}>
+            Added by:
+        </div>
+            <div className="imageBox">
             <img src={imageUrl} alt={brand} />
+            </div>
+
+            <div className="desciprionBox">
+
             <p>
-              <strong>Brand: </strong>
               <span className="brand">{brand}</span>
             </p>
             <p>
               <strong>Model: </strong>
-              <span className="model">{model} {bytes} GB </span>
+              <span className="model">{model} {bytes}GB </span>
             </p>
             <p>
               <strong>Color: </strong>
               <span className="model">{color}</span>
             </p>
             <p>
-              <strong>Value:</strong>
+              <strong>Price:</strong>
               <span className="value">{price}</span>$
             </p>
+            </div>
+
             <Link to={`details/${_id}`} className={styles.detailsBtn}>
               Details
             </Link>
           </li>
+        </>
     )
 }
