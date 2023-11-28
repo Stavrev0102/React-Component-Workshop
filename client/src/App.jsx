@@ -22,26 +22,30 @@ library.add(fab);
 
 
 function App() {
-  const [auth,setAuth] = useState({});
+  const [auth,setAuth] = useState(() => {
+    localStorage.removeItem('accessToken');
+    return {}
+  });
+  
   const  navigate  = useNavigate()
   const registerSubmitHandler = async(values) =>{
     const res = await authService.register(values.email,values.password);
     setAuth(res)
-    console.log(res)
-  //  localStorage.setItem('accessToken',res.accessToken);
+    localStorage.setItem('accessToken',res.accessToken);
     navigate('/')
-  // console.log(res);
   }
 
   const loginSubmitHandler = async(values) => {
     const res = await authService.login(values.email,values.password);
-    setAuth(res)
+    setAuth(res);
+    localStorage.setItem('accessToken' , res.accessToken);
     navigate('/')
-    console.log(res);
   }
 
   const logoutHandler = () => {
     setAuth({});
+    localStorage.removeItem('accessToken');
+
     console.log('done')
     navigate('/')
   }

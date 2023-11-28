@@ -10,14 +10,14 @@ const buildOptions = (data) => {
             'content-type':'application/json'
         }
     }
-    // const accessToken = localStorage.getItem('accessToken');
+    const accessToken = localStorage.getItem('accessToken');
     
-    // if(accessToken){
-    //     options.headers = {
-    //         ...options.headers,
-    //         'X-Authorization':accessToken
-    //     }
-    // }
+    if(accessToken){
+        options.headers = {
+            ...options.headers,
+            'X-Authorization':accessToken
+        }
+    }
     return options;
 }
 
