@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import Spinner from "./components/Spinner/Spinner";
 import './App.css';
 import { Routes,Route, useNavigate } from 'react-router-dom';
+import 'feather-icons/dist/feather';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -24,10 +25,11 @@ function App() {
   const [auth,setAuth] = useState({});
   const  navigate  = useNavigate()
   const registerSubmitHandler = async(values) =>{
-    // const res = await authService.register(values.email,values.password);
-  //   setAuth(res)
+    const res = await authService.register(values.email,values.password);
+    setAuth(res)
+    console.log(res)
   //  localStorage.setItem('accessToken',res.accessToken);
-  //   navigate(Path.Home)
+    navigate('/')
   // console.log(res);
   }
 
@@ -38,10 +40,16 @@ function App() {
     console.log(res);
   }
 
+  const values = {
+    loginSubmitHandler,
+    registerSubmitHandler,
+    email:auth.email,
+    isAuthenticated: !!auth.email
+  }
 
 
   return (
-    <AuthContext.Provider value={ {loginSubmitHandler} }>
+    <AuthContext.Provider value={ values }>
     <div className="root">
       <Header className="header" />
 
