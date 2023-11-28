@@ -2,7 +2,7 @@ import Footer from "./components/Footer/Footer"
 import Header from "./components/Header/Header";
 import Spinner from "./components/Spinner/Spinner";
 import './App.css';
-import { Routes,Route } from 'react-router-dom';
+import { Routes,Route, useNavigate } from 'react-router-dom';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -16,24 +16,32 @@ import Create from "./components/Create/Create";
 import Details from "./components/Details/Details";
 import { useState } from "react";
 import AuthContext from "./context/authContext";
+import * as authService from './services/authService'
 library.add(fab);
 
 
 function App() {
   const [auth,setAuth] = useState({});
-
+  const  navigate  = useNavigate()
   const registerSubmitHandler = async(values) =>{
-  //   const res = await authService.register(values.email,values.password);
+    // const res = await authService.register(values.email,values.password);
   //   setAuth(res)
   //  localStorage.setItem('accessToken',res.accessToken);
   //   navigate(Path.Home)
-  console.log(values);
+  // console.log(res);
+  }
+
+  const loginSubmitHandler = async(values) => {
+    const res = await authService.login(values.email,values.password);
+    setAuth(res)
+    navigate('/')
+    console.log(res);
   }
 
 
 
   return (
-    <AuthContext.Provider value={ {registerSubmitHandler} }>
+    <AuthContext.Provider value={ {loginSubmitHandler} }>
     <div className="root">
       <Header className="header" />
 

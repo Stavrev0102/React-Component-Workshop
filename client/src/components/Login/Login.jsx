@@ -1,22 +1,40 @@
 
-import  styles from  '../Login/Login.module.css';
-import {Link} from 'react-router-dom'
+import { useContext } from 'react';
+import useForm from '../../hooks/useForm';
+import styles from '../Login/Login.module.css';
+import { Link } from 'react-router-dom';
+import AuthContext from '../../context/authContext';
+
+const registerKeys = {
+  Email:'email',
+  Password:'password',
+}
 
 export default function Login () {
-  
+  const { loginSubmitHandler } = useContext(AuthContext)
+
+  const { values,onChange,onSubmit } = useForm(loginSubmitHandler, {
+   [registerKeys.Email]:'',
+   [registerKeys.Password]:'',
+  });
+
+
     return (
       <section className={styles.home}>
         <div className={styles.formContainer}>
           <i className="uil uil-times form_close" />
           {/* Login From */}
           <div className={styles.formLoginForm}>
-            <form className={styles.form}>
+            <form className={styles.form} onSubmit={onSubmit}>
               <h2 className={styles.titleLogin}>Login</h2>
               <div className={styles.inputBox}>
                 <input
                   type="email"
                   placeholder="Enter your email"
                   required=""
+                  name='email'
+                  onChange={onChange}
+                  value={values[registerKeys.Email]}
                 />
                 <i className="uil uil-envelope-alt email" />
               </div>
@@ -25,6 +43,9 @@ export default function Login () {
                   type="password"
                   placeholder="Enter your password"
                   required=""
+                  name='password'
+                  onChange={onChange}
+                  value={values[registerKeys.Password]}
                 />
                 <i className="uil uil-lock password" />
                 <i className="uil uil-eye-slash pw_hide" />
