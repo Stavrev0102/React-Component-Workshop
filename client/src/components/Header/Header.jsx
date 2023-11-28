@@ -45,10 +45,10 @@ export default function Header() {
                   </Link>
                 </li>
                 <li className="navbar__item">
-                  <a onClick={logoutHandler} className="navbar__link">
+                  <Link to={'logout'} className="navbar__link">
                     <i data-feather="log-out" />
                     <span>Logout</span>
-                  </a>
+                  </Link>
                 </li>
                 <li className="navbar__item">
                   <Link to="/create" className="navbar__link">

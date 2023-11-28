@@ -27,14 +27,14 @@ const buildOptions = (data) => {
         method
     })
 
-    // if(response.status === 204){
-    //     return {}
-    // }
+    if(response.status === 204){
+        return {}
+    }
 
     const result = await response.json();
-    // if(!response.ok){
-    //     throw response
-    // }
+    if(!response.ok){
+        throw response
+    }
     
     return result
 }

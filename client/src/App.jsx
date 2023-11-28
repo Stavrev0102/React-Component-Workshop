@@ -3,7 +3,6 @@ import Header from "./components/Header/Header";
 import Spinner from "./components/Spinner/Spinner";
 import './App.css';
 import { Routes,Route, useNavigate } from 'react-router-dom';
-import 'feather-icons/dist/feather';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -18,6 +17,7 @@ import Details from "./components/Details/Details";
 import { useState } from "react";
 import AuthContext from "./context/authContext";
 import * as authService from './services/authService'
+import Logout from "./components/Logout/Logout";
 library.add(fab);
 
 
@@ -40,9 +40,16 @@ function App() {
     console.log(res);
   }
 
+  const logoutHandler = () => {
+    setAuth({});
+    console.log('done')
+    navigate('/')
+  }
+
   const values = {
     loginSubmitHandler,
     registerSubmitHandler,
+    logoutHandler,
     email:auth.email,
     isAuthenticated: !!auth.email
   }
@@ -59,6 +66,7 @@ function App() {
           <Route path="/catalog" element={<Catalog/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/login" element={<Login/>}/>
+          <Route path="/logout" element={<Logout/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/create" element={<Create/>}/>
           <Route path="/catalog/details/:gameId" element={<Details/>}/>
