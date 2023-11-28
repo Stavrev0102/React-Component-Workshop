@@ -15,6 +15,7 @@ import Register from "./components/Register/Register";
 import Create from "./components/Create/Create";
 import Details from "./components/Details/Details";
 import { useState } from "react";
+import AuthContext from "./context/authContext";
 library.add(fab);
 
 
@@ -32,6 +33,7 @@ function App() {
 
 
   return (
+    <AuthContext.Provider value={ {registerSubmitHandler} }>
     <div className="root">
       <Header className="header" />
 
@@ -41,15 +43,16 @@ function App() {
           <Route path="/catalog" element={<Catalog/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/login" element={<Login/>}/>
-          <Route path="/register" element={<Register registerSubmitHandler={registerSubmitHandler}/>}/>
+          <Route path="/register" element={<Register/>}/>
           <Route path="/create" element={<Create/>}/>
           <Route path="/catalog/details/:gameId" element={<Details/>}/>
           
         </Routes>
       </main>
-      
+
       <Footer className="footer"/>
     </div>
+    </AuthContext.Provider>
   );
 }
 
