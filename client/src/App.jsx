@@ -13,6 +13,7 @@ import Profile from "./components/Profile/Profile";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Create from "./components/Create/Create";
+import Details from "./components/Details/Details";
 
 library.add(fab);
 
@@ -32,6 +33,8 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/create" element={<Create/>}/>
+          <Route path="/catalog/details/:gameId" element={<Details/>}/>
+          
         </Routes>
       </main>
       

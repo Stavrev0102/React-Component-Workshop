@@ -2,6 +2,7 @@
 import styles from '../Create/Create.module.css';
 
 export default function Create () {
+  
     return (
       <section className={styles.create}>
         <div className={styles.form}>
