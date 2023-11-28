@@ -1,8 +1,8 @@
 
-const baseUrl = 'http://localhost:3030/jsonstore/products'
+import * as request from '../lib/request'
+const baseUrl = 'http://localhost:3030/data/products'
 
 export const getAll = async() => {
-    const response = await fetch(baseUrl)
-    const result = response.json();
-    return result;
+    const response = await request.get(baseUrl)
+    return Object.values(response);
 }

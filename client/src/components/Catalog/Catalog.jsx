@@ -11,10 +11,12 @@ export default function Catalog () {
     useEffect(() => {
         productService.getAll()
         .then((res) => {
-          setProducts(Object.values(res))
+          setProducts(res);
+          
           setIsLoading(false)
           return
-        });
+        })
+        .catch(err => console.log(err));
     },[])
     
     console.log(products);
