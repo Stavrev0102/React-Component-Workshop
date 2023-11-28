@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .details {
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  
+  .detailsWrapper {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .detailsTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .imgWrapper img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  .infoWrapper {
+    display: flex;
+    
+  }
+  .infoWrapper p {
+    margin: 5px 0;
+    display: inline-block;
+  }
+  .columnDiv1,
+  .columnDiv2 {
+    flex-basis: 50%;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .columnDiv2 p {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .detailsBrand,
+  .detailsModel,
+  .detailsRelease,
+  .detailsDescription,
+  .detailsValue,
+  .detailsColor,
+  .detailsBytes,
+  .detailsVinNumber,
+  .detailsScreenSize,
+  .detailsProcessort {
+    font-weight: bold;
+  }
+  
+  .actionBtns {
+    margin-top: 20px;
+  }
+  
+  .editBtn,
+  .deleteBtn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+  }
+  
+  .deleteBtn {
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+  }
+  

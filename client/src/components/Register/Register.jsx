@@ -1,15 +1,32 @@
 
+import useForm from '../../hooks/useForm';
 import styles from '../Register/Register.module.css';
 import { Link } from 'react-router-dom';
 
 
-export default function Register () {
+const registerKeys = {
+  Email:'email',
+  Password:'password',
+  rePassword:'rePassword'
+}
+
+export default function Register ({
+  registerSubmitHandler
+}) {
+
+  const { values,onChange,onSubmit } = useForm(registerSubmitHandler, {
+   [registerKeys.Email]:'',
+   [registerKeys.Password]:'',
+   [registerKeys.rePassword]:''
+  });
+
     return (
       <section className={styles.home}>
       <div className={styles.formContainer}>
         <i className="uil uil-times form_close" />
         <div className={styles.formLoginForm}>
-          <form className={styles.form}>
+
+          <form className={styles.form} onSubmit={onSubmit}>
             <h2 className={styles.titleLogin}>Register</h2>
 
             <div className={styles.inputBox}>
@@ -18,6 +35,8 @@ export default function Register () {
                 placeholder="Enter your email"
                 required=""
                 name='email'
+                onChange={onChange}
+                value = {values.email}
               />
             </div>
 
@@ -27,6 +46,8 @@ export default function Register () {
                 placeholder="Enter your password"
                 required=""
                 name='password'
+                onChange={onChange}
+                value = {values.password}
               />
             </div>
 
@@ -35,7 +56,9 @@ export default function Register () {
                 type="password"
                 placeholder="Repeat your password"
                 required=""
-                name='re-password'
+                name='rePassword'
+                onChange={onChange}
+                value = {values.rePassword}
               />
             </div>
 
