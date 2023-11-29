@@ -1,11 +1,31 @@
 
+import { useParams } from 'react-router-dom';
 import styles from '../Profile/Profile.module.css';
+import { useEffect, useState } from 'react';
+import * as authService from '../../services/authService'
 
 export default function Profile () {
+
+    const { userId } = useParams();
+    const [user,setUser] = useState({});
+
+    useEffect(() => {
+            authService.getUserById()
+            .then(res => {
+                for (const user of res) {
+                    if(user.res._id === userId){
+                        setUser(user.res)
+                    }
+                }
+            })
+    },[userId]);
+
+    console.log(user);
+    // console.log(user);
     return (
       <div className="container mt-5">
         <div className="row d-flex justify-content-center">
-          <div className={styles.colMd7}>
+          <div className="col-md-7" >
             <div className={styles.card}>
               <div className="text-center">
                 <img
@@ -18,7 +38,7 @@ export default function Profile () {
                 <span className="bg-secondary p-1 px-4 rounded text-white">
                   Pro
                 </span>
-                <h5 className="mt-2 mb-0">Alexender Schidmt</h5>
+                <h5 className="mt-2 mb-0">{user.email}</h5>
                 <span>UI/UX Designer</span>
                 <div className="px-4 mt-1">
                   <p className={styles.fonts}>

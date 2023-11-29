@@ -11,7 +11,7 @@ feather.replace();
 
 
 export default function Header() {
-  const {email,isAuthenticated} = useContext(AuthContext)
+  const {email,isAuthenticated,_id} = useContext(AuthContext)
     return (
       <div className="header">
         <div className="header__logo">
@@ -34,7 +34,7 @@ export default function Header() {
             {isAuthenticated && (
               <>
                 <li className="navbar__item">
-                  <Link to="/profile" className="navbar__link">
+                  <Link to={`/catalog/profile/${_id}`}  className="navbar__link">
                     <i data-feather="user" />
                     <span>Profile</span>
                   </Link>

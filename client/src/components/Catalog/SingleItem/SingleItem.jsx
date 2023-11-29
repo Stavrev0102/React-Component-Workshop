@@ -11,7 +11,8 @@ export default function SingleItem({
     color,
     price,
     imageUrl,
-    ownerEmail
+    ownerEmail,
+    _ownerId
 }){
   const {email} = useContext(AuthContext)
 
@@ -19,7 +20,9 @@ export default function SingleItem({
         <>
         <li className={styles.card}>
         <div className={styles.from}>
-            Added by:{ownerEmail}
+            Added by: <Link to={`profile/${_ownerId}`}>
+            {ownerEmail}
+            </Link> 
         </div>
             <div className="imageBox">
             <img src={imageUrl} alt={brand} />

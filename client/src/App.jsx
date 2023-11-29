@@ -30,6 +30,7 @@ function App() {
   const  navigate  = useNavigate()
   const registerSubmitHandler = async(values) =>{
     const res = await authService.register(values.email,values.password);
+    authService.registerInLocalDb({res});
     setAuth(res)
     localStorage.setItem('accessToken',res.accessToken);
     navigate('/')
@@ -75,6 +76,7 @@ function App() {
           <Route path="/register" element={<Register/>}/>
           <Route path="/create" element={<Create/>}/>
           <Route path="/catalog/details/:productId" element={<Details/>}/>
+          <Route path="/catalog/profile/:userId" element={<Profile/>}/>
           
         </Routes>
       </main>
