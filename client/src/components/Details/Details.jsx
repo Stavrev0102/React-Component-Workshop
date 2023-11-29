@@ -15,8 +15,8 @@ export default function Details() {
       productService.getOneById(productId)
       .then(res => setProduct(res))
     },[productId]);
-    console.log(_id);
-    console.log(product._ownerId);
+    
+    console.log(product);
     return (
       <section className={styles.details}id="details">
         <div className={styles.detailsWrapper}>

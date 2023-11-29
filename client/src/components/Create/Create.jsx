@@ -2,14 +2,18 @@
 import styles from '../Create/Create.module.css';
 import * as productService from '../../services/productService';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import AuthContext from '../../context/authContext';
 
 export default function Create () {
   const navigate  = useNavigate()
+  const {email} = useContext(AuthContext);
 
   const createSubmitHandler = async(e) => {
     e.preventDefault();
      const productData = Object.fromEntries(new FormData(e.currentTarget));
-
+     productData.ownerEmail = email;
+    
      try {
        const result =  await productService.create(productData);
        navigate('/catalog')
