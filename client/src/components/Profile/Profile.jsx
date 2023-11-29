@@ -38,8 +38,9 @@ export default function Profile () {
                 <span className="bg-secondary p-1 px-4 rounded text-white">
                   Pro
                 </span>
-                <h5 className="mt-2 mb-0">{user.email}</h5>
-                <span>UI/UX Designer</span>
+                <h5 className="mt-2 mb-0">{user.username}</h5>
+                <span>Phone Number {user.phoneNumber}</span><br />
+                <span>Email {user.email}</span>
                 <div className="px-4 mt-1">
                   <p className={styles.fonts}>
                     Consectetur adipiscing elit, sed do eiusmod tempor

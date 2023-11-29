@@ -29,8 +29,15 @@ function App() {
   
   const  navigate  = useNavigate()
   const registerSubmitHandler = async(values) =>{
-    const res = await authService.register(values.email,values.password);
+    const res = await authService.register(
+      values.email,
+      values.password,
+      values.username,
+      values.PhoneNumber
+      );
+
     authService.registerInLocalDb({res});
+
     setAuth(res)
     localStorage.setItem('accessToken',res.accessToken);
     navigate('/')

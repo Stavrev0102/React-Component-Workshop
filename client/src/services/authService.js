@@ -4,10 +4,12 @@ const baseUrl = 'http://localhost:3030/users';
 const myDBUrl = 'http://localhost:3030/jsonstore/users';
 import * as request from '../lib/request'
 
-export const register = async(email,password) => {
+export const register = async(email,password,username,phoneNumber) => {
     const result = request.post(`${baseUrl}/register`, {
         email,
-        password
+        password,
+        username,
+        phoneNumber
     });
     return result
 }
@@ -29,7 +31,7 @@ export const logout = async() => {
     return result
 }
 
-export const getUserById = async(userId) => {
+export const getUserById = async() => {
     const result = request.get(`${myDBUrl}`);
     const res = await result
    

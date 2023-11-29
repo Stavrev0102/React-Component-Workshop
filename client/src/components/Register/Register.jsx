@@ -9,7 +9,9 @@ import AuthContext from '../../context/authContext';
 const registerKeys = {
   Email:'email',
   Password:'password',
-  rePassword:'rePassword'
+  rePassword:'rePassword',
+  username:'username',
+  PhoneNumber:'PhoneNumber'
 }
 
 export default function Register () {
@@ -18,7 +20,9 @@ export default function Register () {
   const { values,onChange,onSubmit } = useForm(registerSubmitHandler, {
    [registerKeys.Email]:'',
    [registerKeys.Password]:'',
-   [registerKeys.rePassword]:''
+   [registerKeys.rePassword]:'',
+   [registerKeys.username]:'',
+   [registerKeys.PhoneNumber]:'',
   });
 
     return (
@@ -33,11 +37,31 @@ export default function Register () {
             <div className={styles.inputBox}>
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder="Enter your Email"
                 required=""
                 name='email'
                 onChange={onChange}
                 value = {values.email}
+              />
+            </div>
+            <div className={styles.inputBox}>
+              <input
+                type="username"
+                placeholder="Enter your Username"
+                required=""
+                name='username'
+                onChange={onChange}
+                value = {values.username}
+              />
+            </div>
+            <div className={styles.inputBox}>
+              <input
+                type="number"
+                placeholder="Enter your Phone Number"
+                required=""
+                name='PhoneNumber'
+                onChange={onChange}
+                value = {values.PhoneNumber}
               />
             </div>
 
