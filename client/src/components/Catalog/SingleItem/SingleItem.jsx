@@ -18,7 +18,7 @@ export default function SingleItem({
         <>
         <li className={styles.card}>
         <div className={styles.from}>
-            Added by:{email}
+            Added by:
         </div>
             <div className="imageBox">
             <img src={imageUrl} alt={brand} />

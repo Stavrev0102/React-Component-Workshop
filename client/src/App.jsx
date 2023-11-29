@@ -55,7 +55,8 @@ function App() {
     registerSubmitHandler,
     logoutHandler,
     email:auth.email,
-    isAuthenticated: !!auth.email
+    isAuthenticated: !!auth.email,
+    _id:auth._id
   }
 
 
@@ -73,7 +74,7 @@ function App() {
           <Route path="/logout" element={<Logout/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/create" element={<Create/>}/>
-          <Route path="/catalog/details/:gameId" element={<Details/>}/>
+          <Route path="/catalog/details/:productId" element={<Details/>}/>
           
         </Routes>
       </main>

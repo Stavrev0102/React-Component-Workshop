@@ -8,10 +8,10 @@ export default function Create () {
 
   const createSubmitHandler = async(e) => {
     e.preventDefault();
-     const gameData = Object.fromEntries(new FormData(e.currentTarget));
+     const productData = Object.fromEntries(new FormData(e.currentTarget));
 
      try {
-       const result =  await productService.create(gameData);
+       const result =  await productService.create(productData);
        navigate('/catalog')
      } catch (error) {
       //error notification

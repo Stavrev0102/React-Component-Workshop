@@ -1,59 +1,76 @@
 
-    import styles from '../Details/Details.module.css';
+    import { useContext, useEffect, useState } from 'react';
+import styles from '../Details/Details.module.css';
     import { Link, useParams } from "react-router-dom";
+    import * as productService from '../../services/productService';
+import AuthContext from '../../context/authContext';
     
 
 export default function Details() {
+    const {productId} = useParams();
+    const [product,setProduct] = useState({})
+    const {_id} = useContext(AuthContext);
+
+    useEffect(() => {
+      productService.getOneById(productId)
+      .then(res => setProduct(res))
+    },[productId]);
+    console.log(_id);
+    console.log(product._ownerId);
     return (
       <section className={styles.details}id="details">
         <div className={styles.detailsWrapper}>
           <p  className={styles.detailsTitle}>Show Details</p>
           <div className={styles.imgWrapper} id="img-wrapper">
-            <img src="https://buybest.bg/storage/public/uploads/media-manager/app-modules-shop-models-product/1184/4159/iphone-14-pro-finish-select-202209-6-1inch-spaceblack%20(1).jpeg" alt="example1" />
+            <img src={product.imageUrl} alt="example1" />
           </div>
-          {/*Edit and Delete are only for creator*/}
-          <div className={styles.actionBtns} id="action-buttons">
-            <Link to={'caqx'} className={styles.editBtn} id="edit-btn">
-              Edit
-            </Link>
-            <Link to={'#'}  className={styles.deleteBtn} id="delete-btn">
-              Delete
-            </Link>
-          </div>
+          { _id === product._ownerId && (
+             <div className={styles.actionBtns} id="action-buttons">
+             <Link to={'caqx'} className={styles.editBtn} id="edit-btn">
+               Edit
+             </Link>
+             <Link to={'#'}  className={styles.deleteBtn} id="delete-btn">
+               Delete
+             </Link>
+           </div>
+          )}
+         
+
           <div  className={styles.infoWrapper} id="info-wrapper">
             <div className={styles.columnDiv1}>
             <p>
-              Brand: <span className={styles.detailsBrand} id="details-brand">Brand</span>
+              Brand: <span className={styles.detailsBrand} id="details-brand">{product.brand}</span>
             </p>
             <p>
-              Model: <span className={styles.detailsModel} id="details-model">Model</span>
+              Model: <span className={styles.detailsModel} id="details-model">{product.model}</span>
             </p>
             <p>
-                Color: <span className={styles.detailsColor}> same color here</span>
+                Color: <span className={styles.detailsColor}>{product.color}</span>
             </p>
             <p>
-                Bytes: <span className={styles.detailsBytes}> example 256GB</span>
+                Bytes: <span className={styles.detailsBytes}>{product.bytes}</span>
             </p>
             <p>
-                VIN-Number: <span className={styles.detailsVinNumber}>123456789</span>
+                VIN-Number: <span className={styles.detailsVinNumber}>{product['vin-number']}</span>
             </p>
             </div>
 
             <div  className={styles.columnDiv2}>
             <p>
-                Screen Size: <span className={styles.detailsScreenSize}>15 incs</span>
+                Screen Size: <span className={styles.detailsScreenSize}>{product['size-screen']}</span>
             </p>
             <p>
-                Processor: <span className={styles.detailsProcessort}>Intel Core I 5</span>
+                Processor: <span className={styles.detailsProcessort}>{product.processor}</span>
             </p>
             <p>
-              Release date: <span className={styles.detailsRelease} id="details-release">2019</span>
+              Release date: <span className={styles.detailsRelease} id="details-release">{product['released-day']}</span>
             </p>
             <p>
-              Value: <span className={styles.detailsValue} id="details-value">2000</span>
+              Value: <span className={styles.detailsValue} id="details-value">{product.price} $</span>
             </p>
             <p>
-              Description: <span className={styles.detailsDescription} id="details-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore iste earum necessitatibus architecto, voluptatem vel impedit rem suscipit tempora at.</span>
+              Description: <span className={styles.detailsDescription} id="details-description">{product.description}</span>
+           
             </p>
             </div>
 
