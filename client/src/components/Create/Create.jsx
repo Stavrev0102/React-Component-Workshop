@@ -1,14 +1,30 @@
 
 import styles from '../Create/Create.module.css';
+import * as productService from '../../services/productService';
+import { useNavigate } from 'react-router-dom';
 
 export default function Create () {
-  
+  const navigate  = useNavigate()
+
+  const createSubmitHandler = async(e) => {
+    e.preventDefault();
+     const gameData = Object.fromEntries(new FormData(e.currentTarget));
+
+     try {
+       const result =  await productService.create(gameData);
+       navigate('/catalog')
+     } catch (error) {
+      //error notification
+        console.log(error);
+     }
+
+  }
     return (
       <section className={styles.create}>
         <div className={styles.form}>
           <h2>Add item</h2>
 
-          <form className={styles.createForm}>
+          <form className={styles.createForm} onSubmit={createSubmitHandler}>
             <div className={styles.column}>
 
             <div className={styles.firstColumn}>

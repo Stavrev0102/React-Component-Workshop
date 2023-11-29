@@ -1,5 +1,7 @@
+import { useContext } from 'react';
 import styles  from '../../Catalog/Catalog.module.css'
 import {Link} from 'react-router-dom';
+import AuthContext from '../../../context/authContext';
 
 export default function SingleItem({
     _id,
@@ -10,11 +12,13 @@ export default function SingleItem({
     price,
     imageUrl,
 }){
+  const {email} = useContext(AuthContext)
+
     return (
         <>
         <li className={styles.card}>
         <div className={styles.from}>
-            Added by:
+            Added by:{email}
         </div>
             <div className="imageBox">
             <img src={imageUrl} alt={brand} />

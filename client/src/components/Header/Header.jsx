@@ -12,11 +12,6 @@ feather.replace();
 
 export default function Header() {
   const {email,isAuthenticated} = useContext(AuthContext)
-
-  const logoutHandler = (e) => {
-    e.preventDefault();
-    console.log('logout');
-  }
     return (
       <div className="header">
         <div className="header__logo">
