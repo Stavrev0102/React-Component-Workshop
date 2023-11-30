@@ -26,7 +26,7 @@ export default function Details() {
           </div>
           { _id === product._ownerId && (
              <div className={styles.actionBtns} id="action-buttons">
-             <Link to={'caqx'} className={styles.editBtn} id="edit-btn">
+             <Link to={`/catalog/details/${productId}/edit`} className={styles.editBtn} id="edit-btn">
                Edit
              </Link>
              <Link to={'#'}  className={styles.deleteBtn} id="delete-btn">

@@ -17,6 +17,7 @@ import Create from "./components/Create/Create";
 import Details from "./components/Details/Details";
 import { useState } from "react";
 import Logout from "./components/Logout/Logout";
+import Edit from "./components/Edit/Edit";
 
 library.add(fab);
 
@@ -40,6 +41,7 @@ function App() {
           <Route path="/register" element={<Register/>}/>
           <Route path="/create" element={<Create/>}/>
           <Route path="/catalog/details/:productId" element={<Details/>}/>
+          <Route path="/catalog/details/:productId/edit" element={<Edit/>}/>
           <Route path="/catalog/profile/:userId" element={<Profile/>}/>
           
         </Routes>

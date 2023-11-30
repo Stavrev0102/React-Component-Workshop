@@ -15,3 +15,7 @@ export const getOneById = async(producId) => {
     const result = await request.get(`${baseUrl}/${producId}`);
     return result;
 }
+export const edit = async(producId,productData) => {
+    const result = await request.put(`${baseUrl}/${producId}` ,productData);
+   return result;
+}
