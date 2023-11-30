@@ -1,5 +1,5 @@
 
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import useForm from '../../hooks/useForm';
 import styles from '../Login/Login.module.css';
 import { Link } from 'react-router-dom';
@@ -11,13 +11,14 @@ const registerKeys = {
 }
 
 export default function Login () {
-  const { loginSubmitHandler } = useContext(AuthContext)
+  const { loginSubmitHandler } = useContext(AuthContext);
 
-  const { values,onChange,onSubmit } = useForm(loginSubmitHandler, {
-   [registerKeys.Email]:'',
-   [registerKeys.Password]:'',
-  });
+  const initialValues = useMemo(() => ({
+    [registerKeys.Email]:'',
+    [registerKeys.Password]:'',
+}),[])
 
+  const { values,onChange,onSubmit } = useForm(loginSubmitHandler, initialValues); 
 
     return (
       <section className={styles.home}>
