@@ -4,12 +4,12 @@ const baseUrl = 'http://localhost:3030/data/feedback'
 
 export const create = async (userId,text) => {
 
-    const newComment = await request.post(baseUrl, {
+    const newFeedback = await request.post(baseUrl, {
         userId,
         text,
         
     });
-    return newComment
+    return newFeedback
 }
 
 export const getAll = async (userId) => {

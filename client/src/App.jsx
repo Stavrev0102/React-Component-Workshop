@@ -1,3 +1,4 @@
+import { AuthProvider } from "./context/authContext"
 import Footer from "./components/Footer/Footer"
 import Header from "./components/Header/Header";
 import Spinner from "./components/Spinner/Spinner";
@@ -15,61 +16,18 @@ import Register from "./components/Register/Register";
 import Create from "./components/Create/Create";
 import Details from "./components/Details/Details";
 import { useState } from "react";
-import AuthContext from "./context/authContext";
 import * as authService from './services/authService'
 import Logout from "./components/Logout/Logout";
+
 library.add(fab);
 
 
 function App() {
-  const [auth,setAuth] = useState(() => {
-    localStorage.removeItem('accessToken');
-    return {}
-  });
   
-  const  navigate  = useNavigate()
-  const registerSubmitHandler = async(values) =>{
-    const res = await authService.register(
-      values.email,
-      values.password,
-      values.username,
-      values.PhoneNumber
-      );
-
-    authService.registerInLocalDb({res});
-
-    setAuth(res)
-    localStorage.setItem('accessToken',res.accessToken);
-    navigate('/')
-  }
-
-  const loginSubmitHandler = async(values) => {
-    const res = await authService.login(values.email,values.password);
-    setAuth(res);
-    localStorage.setItem('accessToken' , res.accessToken);
-    navigate('/')
-  }
-
-  const logoutHandler = () => {
-    setAuth({});
-    localStorage.removeItem('accessToken');
-
-    console.log('done')
-    navigate('/')
-  }
-
-  const values = {
-    loginSubmitHandler,
-    registerSubmitHandler,
-    logoutHandler,
-    email:auth.email,
-    isAuthenticated: !!auth.email,
-    _id:auth._id
-  }
 
 
   return (
-    <AuthContext.Provider value={ values }>
+    <AuthProvider >
     <div className="root">
       <Header className="header" />
 
@@ -90,7 +48,7 @@ function App() {
 
       <Footer className="footer"/>
     </div>
-    </AuthContext.Provider>
+    </AuthProvider>
   );
 }
 

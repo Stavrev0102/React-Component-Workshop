@@ -11,7 +11,7 @@ export default function Profile () {
 
     const { userId } = useParams();
     const [user,setUser] = useState({});
-    const [comments,setComments] = useState([]);
+    const [feedback,setFeedback] = useState([]);
     const { email } = useContext(AuthContext);
 
 
@@ -26,21 +26,21 @@ export default function Profile () {
             })
 
             feedBackService.getAll(userId)
-            .then(setComments);
+            .then(setFeedback);
     },[userId]);
 
-    console.log(comments);
+    console.log(feedback);
 
     const addCommentHandler = async(values) => {
-        const newComment = await feedBackService.create(
+        const newFeedback = await feedBackService.create(
             userId,
-            values.comment,
+            values.feedback,
           );
-            setComments(state => [...state,{...newComment, owner:{ email } }])
+            setFeedback(state => [...state,{...newFeedback, owner:{ email } }])
     }
 
     const initialValues = useMemo(() => ({
-        comment:'',
+        feedback:'',
     }),[])
     const {values,onChange,onSubmit} = useForm(addCommentHandler,initialValues)
     
@@ -86,7 +86,7 @@ export default function Profile () {
                   </li>
                 </ul>
                     <ul>
-                      {comments.map(({ _id, text, owner: { email } }) => (
+                      {feedback.map(({ _id, text, owner: { email } }) => (
                         <li key={_id} className="comment">
                           <p>
                             {email}: {text}
@@ -94,7 +94,7 @@ export default function Profile () {
                         </li>
                       ))}
                     </ul>
-                    {comments.length === 0 && (
+                    {feedback.length === 0 && (
                       <p className="no-comment">No comments.</p>
                     )}
                   </div>
@@ -105,7 +105,7 @@ export default function Profile () {
           <label>What are you think about {user.username}</label>
           <form className="form" onSubmit={onSubmit}>
             <textarea
-              name="comment"
+              name="feedback"
               placeholder="What is your experience with this user..."
               value={values.comment}
               onChange={onChange}
