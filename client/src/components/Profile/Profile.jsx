@@ -1,17 +1,21 @@
 
 import { useParams } from 'react-router-dom';
 import styles from '../Profile/Profile.module.css';
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo, useReducer, useState } from 'react';
 import * as authService from '../../services/authService'
 import useForm from '../../hooks/useForm';
 import AuthContext from '../../context/authContext';
 
 import * as feedBackService from '../../services/feedBackService'
+import reducer from './feedbackReducer';
+ 
+
 export default function Profile () {
 
     const { userId } = useParams();
     const [user,setUser] = useState({});
-    const [feedback,setFeedback] = useState([]);
+    // const [feedback,setFeedback] = useState([]);
+    const [feedback,dispatch] = useReducer(reducer,[])
     const { email } = useContext(AuthContext);
 
 
@@ -26,23 +30,34 @@ export default function Profile () {
             })
 
             feedBackService.getAll(userId)
-            .then(setFeedback);
+            .then((result) => {
+              dispatch({
+                type:'GET_FEEDBACK',
+                payload:result
+              })
+            });
     },[userId]);
 
     console.log(feedback);
 
-    const addCommentHandler = async(values) => {
+    const addFeedbackHandler = async(values) => {
         const newFeedback = await feedBackService.create(
             userId,
             values.feedback,
           );
-            setFeedback(state => [...state,{...newFeedback, owner:{ email } }])
+            // setFeedback(state => [...state,{...newFeedback, owner:{ email } }])
+            newFeedback.owner = {email};
+
+            dispatch({
+              type:'CREATE_FEEDBACK',
+              payload:newFeedback
+            })
     }
 
     const initialValues = useMemo(() => ({
         feedback:'',
     }),[])
-    const {values,onChange,onSubmit} = useForm(addCommentHandler,initialValues)
+    const {values,onChange,onSubmit} = useForm(addFeedbackHandler,initialValues)
     
     return (
       <div className="container mt-5">
