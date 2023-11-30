@@ -1,7 +1,9 @@
 
 import { createContext } from "react";
-import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import usePersistedState from "../hooks/usePersistedState";
+import * as authService from '../services/authService'
+
 
 
 const  AuthContext = createContext();
@@ -9,10 +11,7 @@ const  AuthContext = createContext();
 export const AuthProvider = ({
     children,
 }) => {
-    const [auth,setAuth] = useState(() => {
-        localStorage.removeItem('accessToken');
-        return {}
-      });
+    const [auth,setAuth] = usePersistedState('auth',{});
       
       const  navigate  = useNavigate()
       const registerSubmitHandler = async(values) =>{

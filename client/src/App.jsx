@@ -16,7 +16,6 @@ import Register from "./components/Register/Register";
 import Create from "./components/Create/Create";
 import Details from "./components/Details/Details";
 import { useState } from "react";
-import * as authService from './services/authService'
 import Logout from "./components/Logout/Logout";
 
 library.add(fab);
