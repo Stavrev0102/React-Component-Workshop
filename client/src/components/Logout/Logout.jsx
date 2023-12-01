@@ -10,8 +10,13 @@ export default function Logout() {
     authService.logout()
     .then(() => {
         logoutHandler();
+        navigate('/')
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+        logoutHandler();
+        navigate('/login')
+        console.log(err)
+    })
 
 return null
 }

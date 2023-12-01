@@ -39,9 +39,6 @@ export const AuthProvider = ({
       const logoutHandler = () => {
         setAuth({});
         localStorage.removeItem('accessToken');
-    
-        console.log('done')
-        navigate('/')
       }
     
       const values = {
