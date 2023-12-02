@@ -14,7 +14,7 @@ export default function Create () {
      const productData = Object.fromEntries(new FormData(e.currentTarget));
      productData.ownerEmail = email;
     
-     try {
+     try { 
        const result =  await productService.create(productData);
        navigate('/catalog')
      } catch (error) {
@@ -26,12 +26,13 @@ export default function Create () {
     return (
       <section className={styles.create}>
         <div className={styles.form}>
-          <h2>Add item</h2>
+          <h2>ADD product </h2>
 
           <form className={styles.createForm} onSubmit={createSubmitHandler}>
             <div className={styles.column}>
 
             <div className={styles.firstColumn}>
+             
               <input
                 type="text"
                 name="brand"
@@ -77,7 +78,7 @@ export default function Create () {
               <textarea  type="text" name="description" id="description" placeholder="Description" />
             </div>
         </div>
-            <button type="submit">Create </button>
+            <button className={styles.submit} type="submit">Add your product </button>
 
           </form>
         </div>

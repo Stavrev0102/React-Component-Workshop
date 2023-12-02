@@ -5,14 +5,18 @@ body{
 
 .card{
     border:none;
-
-    /* position:relative; */
-    /* overflow:hidden; */
     border-radius:8px;
+    /* border: 1px solid white; */
 }
+.wrapper {
+    /* border: 1px solid red; */
+    background-image: url('https://images.unsplash.com/photo-1517433456452-f9633a875f6f?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-repeat: no-repeat;
+    background-position: 100%;
 
+}
+.info 
 .card:before{
-    
     content:"";
     position:absolute;
     left:0;
@@ -42,12 +46,76 @@ body{
 .card:hover::after{
     transform:scaleY(1);
 }
-
+.username {
+ font-size: 2em;
+ color: white;
+}
+.phone {
+    font-weight: bold;
+    color: white;
+    /* border: 1px solid white; */
+    font-size: 1.3em;
+}
+.email {
+    color: white;
+    /* border: 1px solid white; */
+    font-size: 1.3em;
+}
+.details h2 {
+    color: white;
+}
 
 .fonts{
     font-size:11px;
+    
+}
+.commentsDiv {
+    /* border: 1px solid red; */
+    height: 20em;
+    overflow: scroll;
+    background-color: rgb(225, 234, 234);
+    border-radius: 0.4em;
+    border: 2px solid rgb(125, 122, 122);
+    padding: 0.5em 0;
 }
 
+ul {
+    list-style: none;
+}
+.comment p {
+    font-size: 1.2em;
+    background-color: rgb(212, 211, 211);
+    border-radius: 0.5em;
+}
+.comment p span {
+    font-weight: bold;
+    text-decoration:underline
+}
+.createComment {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.textArea {
+    margin: 0 auto;
+    width: 92%
+}
+.buttonAdd {
+    /* background-color: #8E24AA; */
+    width: 50%;
+    text-align: center;
+    margin: 1em auto;
+}
+.buttonAdd:hover{
+    background-color: #f1e0e0;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
 .socialList{
     display:flex;
     list-style:none;
@@ -67,7 +135,7 @@ body{
        border:1px solid #8E24AA !important;
        color:#8E24AA;
        height:40px;
-    cursor:pointer;
+        cursor:pointer;
 
 }
 
@@ -77,6 +145,8 @@ body{
        height:40px;
        background-color:#8E24AA;
     cursor:pointer;
+    color:#fff;
+
 
 }
 
@@ -85,4 +155,10 @@ body{
        background-color:#8E24AA;
        color:#fff;
         height:40px;
+}
+
+.noComments {
+    font-size: 3em;
+    text-align: center;
+    padding: 1em;
 }

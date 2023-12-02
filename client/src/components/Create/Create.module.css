@@ -1,20 +1,32 @@
 
+    
 .create {
-    border: 1px solid red;
+    border: 0.1px solid white;
     height: 80vh;
+    /* margin: 4em auto; */
+    background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-repeat: no-repeat;
+    background-position: 100%;
 }
 .form {
-border: 1px solid blue;
+border: 3px solid rgb(177, 177, 178);
+border-radius: 0.5em;
+padding: 1em;
+margin: 5em auto;
 }
 .createForm{
 text-align: center;
 }
 
 .firstColumn {
-border: 3px solid black;
+/* border: 3px solid black; */
 display: flex;
 flex-wrap: wrap;
 flex: 1 1 auto;
+justify-content: center;
+}
+.firstColumn input {
+    width: 40%;
 }
 .column {
     display: flex;
@@ -22,9 +34,7 @@ flex: 1 1 auto;
     text-align: center;
     justify-content: center;
 }
-.secondColumn {
-    border: 3px solid red;
-}
+
 textarea{
     padding: 1em;
     margin: 0 2em;
@@ -42,3 +52,13 @@ button {
     margin: 1em;
     background-color: rgb(218, 191, 242);
 }
+.submit {
+    border-radius: 0.4em;
+    background-color: #016afb;
+    border: 2px solid white;
+    color: white;
+    font-size: 1.3em;
+}
+.submit:hover {
+    color: rgb(128, 6, 6);
+} 

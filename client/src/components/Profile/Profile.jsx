@@ -60,7 +60,7 @@ export default function Profile () {
     const {values,onChange,onSubmit} = useForm(addFeedbackHandler,initialValues)
     
     return (
-      <div className="container mt-5">
+      <div className={styles.wrapper}>
         <div className="row d-flex justify-content-center">
           <div className="col-md-7">
             <div className={styles.card}>
@@ -71,72 +71,68 @@ export default function Profile () {
                   className="rounded-circle"
                 />
               </div>
-              <div className="text-center mt-3">
+              <div className="text-center mt-3 ">
                 <span className="bg-secondary p-1 px-4 rounded text-white">
                   Seller
                 </span>
-                <h5 className="mt-2 mb-0">{user.username}</h5>
-                <span>Phone Number {user.phoneNumber}</span>
+                <h5 className={styles.username} >{user.username}</h5>
+                <span className={styles.phone}>Phone Number: {user.phoneNumber}</span>
                 <br />
-                <span>Email {user.email}</span>
+                <span className={styles.email}>Email: {user.email}</span>
                 <div className="px-4 mt-1">
-
-                  <div className="details-comments">
-                  <h2>About this Seller</h2>
-                  <ul className={styles.socialList}>
-                  <li>
-                    <i className="fa fa-facebook" />
-                  </li>
-                  <li>
-                    <i className="fa fa-dribbble" />
-                  </li>
-                  <li>
-                    <i className="fa fa-instagram" />
-                  </li>
-                  <li>
-                    <i className="fa fa-linkedin" />
-                  </li>
-                  <li>
-                    <i className="fa fa-google" />
-                  </li>
-                </ul>
-                    <ul>
-                      {feedback.map(({ _id, text, owner: { email } }) => (
-                        <li key={_id} className="comment">
-                          <p>
-                            {email}: {text}
-                          </p>
-                        </li>
-                      ))}
+                  <div className={styles.details}>
+                    <h2 CLA>See what people think ?</h2>
+                    <ul className={styles.socialList}>
+                      <li>
+                        <i className="fa fa-facebook" />
+                      </li>
+                      
+                      <li>
+                        <i className="fa fa-instagram" />
+                      </li>
+                      <li> 
+                        <i className="fa fa-linkedin" />
+                      </li>
+                      
                     </ul>
-                    {feedback.length === 0 && (
-                      <p className="no-comment">No comments.</p>
-                    )}
+
+                    <div className={styles.commentsDiv}>
+                      <ul>
+                        {feedback.map(({ _id, text, owner: { email } }) => (
+                          <li key={_id} className={styles.comment}>
+                            <p>
+                              <span>{email}: <br />
+                              </span> {text}
+                            </p>
+                          </li>
+                        ))}
+                      </ul>
+                      {feedback.length === 0 && (
+                        <p className={styles.noComments}>No feedback for this user.</p>
+                      )}
+                    </div>
                   </div>
                 </div>
-               
 
-                <article className="create-comment">
-          <label>What are you think about {user.username}</label>
-          <form className="form" onSubmit={onSubmit}>
-            <textarea
-              name="feedback"
-              placeholder="What is your experience with this user..."
-              value={values.comment}
-              onChange={onChange}
-            />
-            <input
-              className={styles.buttons}
-              type="submit"
-              defaultValue="Add Comment"
-            />
-          </form>
-        </article>
+                <article className={styles.createComment}>
+                  <label>What are you think about {user.username}</label>
+                  <form className={styles.form} onSubmit={onSubmit}>
+                    <textarea
+                      className={styles.textArea}
+                      name="feedback"
+                      placeholder="What is your experience with this user..."
+                      value={values.comment}
+                      onChange={onChange}
+                    />
+                    <input
+                      className={styles.buttonAdd}
+                      type="submit"
+                      defaultValue="Add Comment"
+                    />
+                  </form>
+                </article>
 
                 <div className={styles.buttons}>
-                  <button className="btn btn-outline-primary px-4">
-                    Message
-                  </button>
                   <button className="btn btn-primary px-4 ms-3">Contact</button>
                 </div>
               </div>

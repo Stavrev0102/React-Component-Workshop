@@ -143,7 +143,9 @@ export default function Edit () {
                 />
               </div>
             </div>
-            <button type="submit">Edit </button>
+            <div className="editBtn">
+            <button className={styles.editbtn} type="submit">Edit </button>
+            </div>
           </form>
         </div>
       </section>

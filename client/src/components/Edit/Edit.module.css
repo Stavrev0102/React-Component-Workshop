@@ -34,11 +34,3 @@ textarea{
     font-weight: bold;
     border-radius: 0.3em;
 }
-button {
-   width: 30%;
-   padding: 1em 0;
-    font-size: 1em;
-    text-align: center;
-    margin: 1em;
-    background-color: rgb(218, 191, 242);
-}

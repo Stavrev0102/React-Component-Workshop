@@ -58,7 +58,11 @@ body {
   .detailsProcessort {
     font-weight: bold;
   }
-  
+  .detailsDescription {
+    overflow: scroll;
+    height: 20em;
+    width: 100%;
+  }
   .actionBtns {
     margin-top: 20px;
   }

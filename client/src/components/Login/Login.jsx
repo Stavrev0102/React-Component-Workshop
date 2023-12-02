@@ -1,5 +1,5 @@
 
-import { useContext, useMemo } from 'react';
+import { useContext, useMemo, useState } from 'react';
 import useForm from '../../hooks/useForm';
 import styles from '../Login/Login.module.css';
 import { Link } from 'react-router-dom';
@@ -11,15 +11,35 @@ const registerKeys = {
 }
 
 export default function Login () {
-  const { loginSubmitHandler } = useContext(AuthContext);
+  const { loginSubmitHandler,invalid } = useContext(AuthContext);
+  const [errors,setErrors] = useState({});
 
   const initialValues = useMemo(() => ({
     [registerKeys.Email]:'',
     [registerKeys.Password]:'',
 }),[])
 
-  const { values,onChange,onSubmit } = useForm(loginSubmitHandler, initialValues); 
 
+
+  const emailValidator = () => {
+    if (values.email.length == 0 || values.email.length < 8 || !values.email.includes('@')) {
+      console.log('error')
+        setErrors(state => ({
+            ...state,
+            email: 'Please enter valid Email',
+        }));
+    } else {
+      console.log('valid')
+        if (errors.email) {
+            setErrors(state => ({ ...state, email: '' }));
+        }
+    }
+    
+}
+
+console.log(invalid);
+
+const { values,onChange,onSubmit } = useForm(loginSubmitHandler, initialValues); 
     return (
       <section className={styles.home}>
         <div className={styles.formContainer}>
@@ -36,8 +56,12 @@ export default function Login () {
                   name='email'
                   onChange={onChange}
                   value={values[registerKeys.Email]}
+                  onBlur={emailValidator}
                 />
                 <i className="uil uil-envelope-alt email" />
+                {errors.email && (
+                        <p className={styles.errorMessage}>{errors.email}</p>
+                    )}
               </div>
               <div className={styles.inputBox}>
                 <input
@@ -48,6 +72,9 @@ export default function Login () {
                   onChange={onChange}
                   value={values[registerKeys.Password]}
                 />
+                {invalid && (
+                        <p className={styles.errorMessage}>{invalid}</p>
+                    )}
                 <i className="uil uil-lock password" />
                 <i className="uil uil-eye-slash pw_hide" />
               </div>

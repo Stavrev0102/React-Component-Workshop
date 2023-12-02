@@ -19,11 +19,12 @@ const result = request.post(`http://localhost:3030/jsonstore/users`,info);
 }
 
 export const login = async(email,password) => {
-    const result = request.post(`${baseUrl}/login`, {
-        email,
-        password
-    });
-    return result
+  
+        const result = request.post(`${baseUrl}/login`, {
+            email,
+            password
+        });
+return result
 }
 
 export const logout = async() => {
