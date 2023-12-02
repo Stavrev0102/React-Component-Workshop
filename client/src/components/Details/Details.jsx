@@ -1,7 +1,7 @@
 
     import { useContext, useEffect, useState } from 'react';
 import styles from '../Details/Details.module.css';
-    import { Link, useParams } from "react-router-dom";
+    import { Link, useNavigate, useParams } from "react-router-dom";
     import * as productService from '../../services/productService';
 import AuthContext from '../../context/authContext';
     
@@ -10,12 +10,21 @@ export default function Details() {
     const {productId} = useParams();
     const [product,setProduct] = useState({})
     const {_id} = useContext(AuthContext);
+    const navigate = useNavigate()
 
     useEffect(() => {
       productService.getOneById(productId)
       .then(res => setProduct(res))
     },[productId]);
     
+    const onDelete = async() => {
+      const confirmation = confirm(`Are you sure you want to delete this product: ${product.brand} ${product.model} `)
+
+      if(confirmation) {
+        await productService.remove(product._id);
+        navigate('/catalog')
+      }
+    }
     console.log(product);
     return (
       <section className={styles.details}id="details">
@@ -29,9 +38,7 @@ export default function Details() {
              <Link to={`/catalog/details/${productId}/edit`} className={styles.editBtn} id="edit-btn">
                Edit
              </Link>
-             <Link to={'#'}  className={styles.deleteBtn} id="delete-btn">
-               Delete
-             </Link>
+             <button onClick={onDelete} className={styles.deleteBtn}>Delete</button>
            </div>
           )}
          

@@ -50,77 +50,100 @@ export default function Edit () {
 
           <form className={styles.createForm} onSubmit={onSubmit}>
             <div className={styles.column}>
-
-            <div className={styles.firstColumn}>
-              <input
-                type="text"
-                name="brand"
-                id="shoe-brand"
-                placeholder="Brand"
-                onChange={onChange}
-                value={values.brand}
+              <div className={styles.firstColumn}>
+                <input
+                  type="text"
+                  name="brand"
+                  id="shoe-brand"
+                  placeholder="Brand"
+                  onChange={onChange}
+                  value={values.brand}
                 />
-              <input
-                type="text"
-                name="model"
-                id="shoe-model"
-                placeholder="Model"
-                onChange={onChange}
-                value={values.model}
+                <input
+                  type="text"
+                  name="model"
+                  id="shoe-model"
+                  placeholder="Model"
+                  onChange={onChange}
+                  value={values.model}
                 />
-              <input
-                type="text"
-                name="imageUrl"
-                id="shoe-img"
-                placeholder="Image url"
-                onChange={onChange}
-                value={values.imageUrl}
+                <input
+                  type="text"
+                  name="imageUrl"
+                  id="shoe-img"
+                  placeholder="Image url"
+                  onChange={onChange}
+                  value={values.imageUrl}
                 />
-              <input type="text" name="color" id="color" placeholder="Color"
-              onChange={onChange}
-              value={values.color} />
-              <input type="text" name="bytes" id="bytes" placeholder="Bytes" 
-              onChange={onChange}
-              value={values.bytes}/>
-              <input type="text" name="price" id="price" placeholder="Price"
-              onChange={onChange}
-              value={values.price} />
+                <input
+                  type="text"
+                  name="color"
+                  id="color"
+                  placeholder="Color"
+                  onChange={onChange}
+                  value={values.color}
+                />
+                <input
+                  type="text"
+                  name="bytes"
+                  id="bytes"
+                  placeholder="Bytes"
+                  onChange={onChange}
+                  value={values.bytes}
+                />
+                <input
+                  type="text"
+                  name="price"
+                  id="price"
+                  placeholder="Price"
+                  onChange={onChange}
+                  value={values.price}
+                />
+              </div>
+              <div className={styles.secondColumn}>
+                <input
+                  type="text"
+                  name="vin-number"
+                  id="vin-number"
+                  placeholder="Vin-Number"
+                  onChange={onChange}
+                  value={values["vin-number"]}
+                />
+                <input
+                  type="text"
+                  name="size-screen"
+                  id="size-screen"
+                  placeholder="Screen Size"
+                  onChange={onChange}
+                  value={values["size-screen"]}
+                />
+                <input
+                  type="text"
+                  name="processor"
+                  id="processor"
+                  placeholder="Processor"
+                  onChange={onChange}
+                  value={values.processor}
+                />
+                <input
+                  type="text"
+                  name="released-date"
+                  id="date"
+                  placeholder="Released Date"
+                  onChange={onChange}
+                  value={values["released-date"]}
+                />
+                <textarea
+                  type="text"
+                  name="description"
+                  id="description"
+                  placeholder="Description"
+                  onChange={onChange}
+                  value={values.description}
+                />
+              </div>
             </div>
-            <div className={styles.secondColumn}>
-              <input
-                type="text"
-                name="vin-number"
-                id="vin-number"
-                placeholder="Vin-Number"
-                onChange={onChange}
-                value={values['vin-number']}
-                />
-              <input
-                type="text"
-                name="size-screen"
-                id="size-screen"
-                placeholder="Screen Size"
-                onChange={onChange}
-                value={values['size-screen']}
-                />
-              <input
-                type="text"
-                name="processor"
-                id="processor"
-                placeholder="Processor"
-                onChange={onChange}
-                value={values.processor}
-                />
-              <input type="text" name="released-date" id="date" placeholder="Released Date"
-              onChange={onChange}
-              value={values['released-date']} />
-              <textarea  type="text" name="description" id="description" placeholder="Description" 
-              onChange={onChange}
-              value={values.description}/>
-            </div>
-        </div>
             <button type="submit">Edit </button>
-
           </form>
         </div>
       </section>

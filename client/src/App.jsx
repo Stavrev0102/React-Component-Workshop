@@ -19,6 +19,8 @@ import { useState } from "react";
 import Logout from "./components/Logout/Logout";
 import Edit from "./components/Edit/Edit";
 import ErrorBoundory from "./components/errorBoundory";
+import AuthGuard from "./components/guards/AuthGuard";
+import GuessGuard from "./components/guards/GuessGuard";
 
 library.add(fab);
 
@@ -37,17 +39,26 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/catalog" element={<Catalog />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/logout" element={<Logout />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/create" element={<Create />} />
-              <Route path="/catalog/details/:productId" element={<Details />} />
-              <Route
-                path="/catalog/details/:productId/edit"
-                element={<Edit />}
-              />
-              <Route path="/catalog/profile/:userId" element={<Profile />} />
+
+              <Route element={<GuessGuard />}>
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+              </Route>
+
+              <Route element={<AuthGuard />}>
+                <Route path="/create" element={<Create />} />
+                <Route path="/logout" element={<Logout />} />
+                <Route
+                  path="/catalog/details/:productId"
+                  element={<Details />}
+                />
+                <Route
+                  path="/catalog/details/:productId/edit"
+                  element={<Edit />}
+                />
+                <Route path="/catalog/profile/:userId" element={<Profile />} />
+                
+              </Route>
             </Routes>
           </main>
 

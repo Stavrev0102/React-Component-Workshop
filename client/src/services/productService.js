@@ -19,3 +19,5 @@ export const edit = async(producId,productData) => {
     const result = await request.put(`${baseUrl}/${producId}` ,productData);
    return result;
 }
+
+export const remove = async(producId) => request.remove(`${baseUrl}/${producId}`)
