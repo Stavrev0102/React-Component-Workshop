@@ -16,7 +16,7 @@ const registerKeys = {
 }
 
 export default function Register () {
-  const {registerSubmitHandler} = useContext(AuthContext)
+  const {registerSubmitHandler,invalid} = useContext(AuthContext)
   const [error,setError] = useState({})
 
   const initialValues = useMemo(() => ({
@@ -43,7 +43,7 @@ export default function Register () {
    };
 
 const usernameValidator = (username) => {
-  if (username.length === 1) {
+  if (username.length <= 1) {
     setError((state) => ({
       ...state,
       invalidUsername: "Username should be more than 1 characters",
@@ -54,7 +54,57 @@ const usernameValidator = (username) => {
     }
   }
 };
+const phoneValidator = () => {
+  if (values.PhoneNumber.length !== 10) {
+    setError((state) => ({
+      ...state,
+      invalidNumber: "Phone number should be 10 chars",
+    }));
+  } else {
+    if (error.invalidNumber) {
+      setError((state) => ({ ...state, invalidNumber: "" }));
+    }
+  }
+};
+const passwordsValidator = () => {
 
+  if (values.password.length <= 8) {
+    console.log('small')
+    setError((state) => ({
+      ...state,
+      smallPass: "Password should be at least 8 chars",
+    }));
+    if(!values.password.includes('@')) {
+      setError((state) => ({
+        ...state,
+        includeSpecialSymbol: "Password should includes special symbol @",
+      }));
+    }
+  } else {
+    if(error.includeSpecialSymbol){
+      setError((state) => ({ ...state, includeSpecialSymbol: "" }));
+    }
+    if (error.smallPass) {
+      setError((state) => ({ ...state, smallPass: "" }));
+    }
+  };
+  if(values.password !== values.rePassword){
+    setError((state) => ({
+      ...state,
+      passwordsDissmatch: "Passwords does not match!",
+    }));
+  } else {
+    if (error.passwordsDissmatch) {
+      setError((state) => ({ ...state, passwordsDissmatch: "" }));
+    }
+  }
+  
+}
+// let isValidForm = false
+// Object.values(error).some((el) => el !== "")
+let isValidForm = Object.values(error).some((el) => el == "")
+
+ 
     return (
       <section className={styles.home}>
         <div className={styles.formContainer}>
@@ -102,9 +152,15 @@ const usernameValidator = (username) => {
                   placeholder="Enter your Phone Number"
                   required=""
                   name="PhoneNumber"
-                  onChange={onChange}
+                  onChange={(e) => {
+                    onChange(e);
+                    phoneValidator();
+                  }}
                   value={values.PhoneNumber}
                 />
+                 {error.invalidNumber && (
+                  <p className={styles.errorMessage}>{error.invalidNumber}</p>
+                )}
               </div>
 
               <div className={styles.inputBox}>
@@ -114,8 +170,15 @@ const usernameValidator = (username) => {
                   required=""
                   name="password"
                   onChange={onChange}
+                  onBlur={passwordsValidator}
                   value={values.password}
                 />
+                {error.smallPass && (
+                  <p className={styles.errorMessage}>{error.smallPass}</p>
+                )};
+                 {error.includeSpecialSymbol && (
+                  <p className={styles.errorMessage}>{error.includeSpecialSymbol}</p>
+                )}
               </div>
 
               <div className={styles.inputBox}>
@@ -125,18 +188,27 @@ const usernameValidator = (username) => {
                   required=""
                   name="rePassword"
                   onChange={onChange}
+                  onBlur={passwordsValidator}
                   value={values.rePassword}
                 />
+                {error.passwordsDissmatch && (
+                  <p className={styles.errorMessage}>{error.passwordsDissmatch}</p>
+                )}
               </div>
-
-              <button className={styles.button} role="button">
-                Register
-              </button>
+                  {isValidForm && (
+                    <button className={styles.button} role="button">
+                    Register
+                  </button>
+                  )}
+              
               <div className={styles.login_signup}>
                 Already have an account?{" "}
                 <Link to="/login" id="signup" className={styles.sign_up}>
                   Login
                 </Link>
+                {invalid && (
+                   <p className={styles.errorMessage}>{invalid}</p>
+                )}
               </div>
             </form>
           </div>

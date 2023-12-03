@@ -29,7 +29,17 @@ export const AuthProvider = ({
             localStorage.setItem('accessToken',res.accessToken);
             navigate('/')
         } catch (error) {
-          console.log(error);
+          if(error.status === 409){
+            setErrors((state) => ({
+              ...state,
+              invalid:'A user with the same email already exists'
+            }))
+          
+          } else {
+            if (error.invalid) {
+              setErrors(state => ({ ...state, invalid: '' }));
+          }
+          }
         }
        
     
