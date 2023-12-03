@@ -13,13 +13,11 @@ export default function Create () {
     e.preventDefault();
      const productData = Object.fromEntries(new FormData(e.currentTarget));
      productData.ownerEmail = email;
-    
      try { 
        const result =  await productService.create(productData);
        navigate('/catalog')
      } catch (error) {
-      //error notification
-        console.log(error);
+      throw new Error(error)
      }
 
   }
@@ -38,22 +36,29 @@ export default function Create () {
                 name="brand"
                 id="shoe-brand"
                 placeholder="Brand"
+                pattern="^.*\S+.*$"
+                required
+                minLength={4}
                 />
               <input
                 type="text"
                 name="model"
                 id="shoe-model"
                 placeholder="Model"
+                required
+                minLength={4}
                 />
               <input
                 type="text"
                 name="imageUrl"
                 id="shoe-img"
                 placeholder="Image url"
+                required
+
                 />
-              <input type="text" name="color" id="color" placeholder="Color" />
-              <input type="text" name="bytes" id="bytes" placeholder="Bytes" />
-              <input type="text" name="price" id="price" placeholder="Price" />
+              <input type="text" name="color" id="color" placeholder="Color" required />
+              <input type="text" name="bytes" id="bytes" placeholder="Bytes" required/>
+              <input type="text" name="price" id="price" placeholder="Price" required />
             </div>
             <div className={styles.secondColumn}>
               <input
@@ -61,18 +66,22 @@ export default function Create () {
                 name="vin-number"
                 id="vin-number"
                 placeholder="Vin-Number"
+                required
+                minLength={10}
                 />
               <input
                 type="text"
                 name="size-screen"
                 id="size-screen"
                 placeholder="Screen Size"
+                required
                 />
               <input
                 type="text"
                 name="processor"
                 id="processor"
                 placeholder="Processor"
+                required
                 />
               <input type="text" name="released-date" id="date" placeholder="Released Date" />
               <textarea  type="text" name="description" id="description" placeholder="Description" />

@@ -16,7 +16,7 @@ export default function Profile () {
     const [user,setUser] = useState({});
     // const [feedback,setFeedback] = useState([]);
     const [feedback,dispatch] = useReducer(reducer,[])
-    const { email } = useContext(AuthContext);
+    const { email,_id } = useContext(AuthContext);
 
 
     useEffect(() => {
@@ -58,7 +58,11 @@ export default function Profile () {
         feedback:'',
     }),[])
     const {values,onChange,onSubmit} = useForm(addFeedbackHandler,initialValues)
-    
+
+    const contactClickHandler = () => {
+      const confirmation = confirm(`Phone Number : ${user.phoneNumber}`)
+
+    }
     return (
       <div className={styles.wrapper}>
         <div className="row d-flex justify-content-center">
@@ -75,8 +79,10 @@ export default function Profile () {
                 <span className="bg-secondary p-1 px-4 rounded text-white">
                   Seller
                 </span>
-                <h5 className={styles.username} >{user.username}</h5>
-                <span className={styles.phone}>Phone Number: {user.phoneNumber}</span>
+                <h5 className={styles.username}>{user.username}</h5>
+                <span className={styles.phone}>
+                  Phone Number: {user.phoneNumber}
+                </span>
                 <br />
                 <span className={styles.email}>Email: {user.email}</span>
                 <div className="px-4 mt-1">
@@ -86,14 +92,13 @@ export default function Profile () {
                       <li>
                         <i className="fa fa-facebook" />
                       </li>
-                      
+
                       <li>
                         <i className="fa fa-instagram" />
                       </li>
-                      <li> 
+                      <li>
                         <i className="fa fa-linkedin" />
                       </li>
-                      
                     </ul>
 
                     <div className={styles.commentsDiv}>
@@ -101,39 +106,46 @@ export default function Profile () {
                         {feedback.map(({ _id, text, owner: { email } }) => (
                           <li key={_id} className={styles.comment}>
                             <p>
-                              <span>{email}: <br />
-                              </span> {text}
+                              <span>
+                                {email}: <br />
+                              </span>{" "}
+                              {text}
                             </p>
                           </li>
                         ))}
                       </ul>
                       {feedback.length === 0 && (
-                        <p className={styles.noComments}>No feedback for this user.</p>
+                        <p className={styles.noComments}>
+                          No feedback for this user.
+                        </p>
                       )}
                     </div>
                   </div>
                 </div>
 
-                <article className={styles.createComment}>
-                  <label>What are you think about {user.username}</label>
-                  <form className={styles.form} onSubmit={onSubmit}>
-                    <textarea
-                      className={styles.textArea}
-                      name="feedback"
-                      placeholder="What is your experience with this user..."
-                      value={values.comment}
-                      onChange={onChange}
-                    />
-                    <input
-                      className={styles.buttonAdd}
-                      type="submit"
-                      defaultValue="Add Comment"
-                    />
-                  </form>
-                </article>
+                {userId !== _id && (
+                  <article className={styles.createComment}>
+                    <label>What are you think about {user.username}</label>
+                    <form className={styles.form} onSubmit={onSubmit}>
+                      <textarea
+                        className={styles.textArea}
+                        name="feedback"
+                        placeholder="What is your experience with this user..."
+                        value={values.comment}
+                        onChange={onChange}
+                      />
+                      <input className={styles.buttonAdd} type="submit" />
+                    </form>
+                  </article>
+                )}
 
                 <div className={styles.buttons}>
-                  <button className="btn btn-primary px-4 ms-3">Contact</button>
+                  <button
+                    onClick={contactClickHandler}
+                    className="btn btn-primary px-4 ms-3"
+                  >
+                    Contact
+                  </button>
                 </div>
               </div>
             </div>

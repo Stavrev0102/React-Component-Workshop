@@ -58,6 +58,8 @@ export default function Edit () {
                   placeholder="Brand"
                   onChange={onChange}
                   value={values.brand}
+                  required
+                  minLength={2}
                 />
                 <input
                   type="text"
@@ -66,6 +68,7 @@ export default function Edit () {
                   placeholder="Model"
                   onChange={onChange}
                   value={values.model}
+                  required
                 />
                 <input
                   type="text"
@@ -74,6 +77,7 @@ export default function Edit () {
                   placeholder="Image url"
                   onChange={onChange}
                   value={values.imageUrl}
+                  required
                 />
                 <input
                   type="text"
@@ -82,6 +86,7 @@ export default function Edit () {
                   placeholder="Color"
                   onChange={onChange}
                   value={values.color}
+                  required
                 />
                 <input
                   type="text"
@@ -90,6 +95,7 @@ export default function Edit () {
                   placeholder="Bytes"
                   onChange={onChange}
                   value={values.bytes}
+                  required
                 />
                 <input
                   type="text"
@@ -98,6 +104,7 @@ export default function Edit () {
                   placeholder="Price"
                   onChange={onChange}
                   value={values.price}
+                  required
                 />
               </div>
               <div className={styles.secondColumn}>
@@ -108,6 +115,8 @@ export default function Edit () {
                   placeholder="Vin-Number"
                   onChange={onChange}
                   value={values["vin-number"]}
+                  required
+                  minLength={10}
                 />
                 <input
                   type="text"
@@ -116,6 +125,8 @@ export default function Edit () {
                   placeholder="Screen Size"
                   onChange={onChange}
                   value={values["size-screen"]}
+                  required
+                  
                 />
                 <input
                   type="text"
@@ -124,6 +135,7 @@ export default function Edit () {
                   placeholder="Processor"
                   onChange={onChange}
                   value={values.processor}
+                  required
                 />
                 <input
                   type="text"

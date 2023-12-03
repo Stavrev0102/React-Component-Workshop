@@ -77,3 +77,19 @@
     margin: auto;
   }
   
+.from {
+  border: 1px solid rgb(192, 191, 191);
+  border-radius: 0.4em;
+  text-align: center;
+  background-color: #eef5f5;
+  padding: 0.4em;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.2em;
+  margin: 0;
+  /* padding: 0; */
+}
+.anchor {
+ text-decoration: none;
+ padding: 0.3em;
+ color:rgb(132, 150, 230)
+}

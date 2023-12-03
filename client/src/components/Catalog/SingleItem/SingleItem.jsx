@@ -20,7 +20,7 @@ export default function SingleItem({
         <>
         <li className={styles.card}>
         <div className={styles.from}>
-            Added by: <Link to={`profile/${_ownerId}`}>
+            Added by: <Link className={styles.anchor} to={`profile/${_ownerId}`}>
             {ownerEmail}
             </Link> 
         </div>
