@@ -5,8 +5,9 @@ This is simple React app with Vite and Node.js as a backend.
 
 1.Clone repository.
 2.Open client terminal and install node modules (npm install node modules).
-3.Open server terminal and start server (node server.js).
-4.Open http://localhost:5173/
+3.In client terminal run: npm run dev.
+4.Open server terminal and start server (node server.js).
+5.Open http://localhost:5173/
 
 Functionality
 
