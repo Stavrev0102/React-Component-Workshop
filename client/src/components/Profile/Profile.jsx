@@ -133,8 +133,9 @@ export default function Profile () {
                         placeholder="What is your experience with this user..."
                         value={values.comment}
                         onChange={onChange}
+                        required
                       />
-                      <input className={styles.buttonAdd} type="submit" />
+                      <input className={styles.buttonAdd} type="submit"/>
                     </form>
                   </article>
                 )}

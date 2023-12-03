@@ -70,7 +70,7 @@ export default function Details() {
                 Processor: <span className={styles.detailsProcessort}>{product.processor}</span>
             </p>
             <p>
-              Release date: <span className={styles.detailsRelease} id="details-release">{product['released-day']}</span>
+              Release date: <span className={styles.detailsRelease} id="details-release">{product['released-date']}</span>
             </p>
             <p>
               Value: <span className={styles.detailsValue} id="details-value">{product.price} $</span>

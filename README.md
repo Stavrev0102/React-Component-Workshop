@@ -1,7 +1,33 @@
 # React-Component-Workshop
 React-Component Workshop
 
-Open server and start it with node serve.js
-install node modules with npm i
-after that start react app with npm run dev
-Enjoy 
+This is simple React app with Vite and Node.js as a backend.
+
+1.Clone repository.
+2.Open client terminal and install node modules (npm install node modules).
+3.Open server terminal and start server (node server.js).
+4.Open http://localhost:5173/
+
+Functionality
+
+No-Auth
+1.Home Page
+2.About Page
+3.Catalog Page without access to details
+4.Login
+5.Register
+
+Authenticated user 
+1.Home Page
+2.About Page
+3.Catalog Page with access to details to current record
+4.Profile Page with information about current user
+5.Logout functionality
+6.Add product page (Auth-user can create product to sell)
+7.See profiles to other members in app.
+8.See details of products and who own it.
+9.Can write and read feedback for current user.
+
+
+
+
