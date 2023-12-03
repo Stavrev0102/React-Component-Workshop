@@ -5,6 +5,7 @@ import feather from 'feather-icons';
 import{Link} from 'react-router-dom';
 import { useContext } from 'react';
 import AuthContext from '../../context/authContext';
+import 'feather-icons';
 
 
 feather.replace();
@@ -23,6 +24,12 @@ export default function Header() {
               <Link to="/" className="navbar__link">
                 <i data-feather="home" />
                 <span>Home</span>{" "}
+              </Link>
+            </li>
+            <li className="navbar__item">
+              <Link to="/about" className="navbar__link">
+                <i data-feather="home" />
+                <span>About</span>{" "}
               </Link>
             </li>
             <li className="navbar__item">

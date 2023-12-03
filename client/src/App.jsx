@@ -21,6 +21,8 @@ import Edit from "./components/Edit/Edit";
 import ErrorBoundory from "./components/errorBoundory";
 import AuthGuard from "./components/guards/AuthGuard";
 import GuessGuard from "./components/guards/GuessGuard";
+import ErrorPath from "./components/ErrorPath/ErrorPath";
+import About from "./components/About/About";
 
 library.add(fab);
 
@@ -38,6 +40,7 @@ function App() {
           <main className="main">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
               <Route path="/catalog" element={<Catalog />} />
 
               <Route element={<GuessGuard />}>
@@ -57,8 +60,9 @@ function App() {
                   element={<Edit />}
                 />
                 <Route path="/catalog/profile/:userId" element={<Profile />} />
-                
               </Route>
+
+              <Route path="*"element={<ErrorPath/>} />
             </Routes>
           </main>
 

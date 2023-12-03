@@ -55,7 +55,7 @@ const usernameValidator = (username) => {
   }
 };
 const phoneValidator = () => {
-  if (values.PhoneNumber.length !== 10) {
+  if (values.PhoneNumber.length !== 9) {
     setError((state) => ({
       ...state,
       invalidNumber: "Phone number should be 10 chars",
