@@ -29,8 +29,8 @@ export default function Register () {
   
   const { values,onChange,onSubmit } = useForm(registerSubmitHandler, initialValues);
 
-   const emailValidator = (email) => {
-     if (email.length <= 8) {
+   const emailValidator = () => {
+     if (values.email.length <= 8) {
        setError((state) => ({
          ...state,
          invalidEmail: "Email should be at least 8 characters!",
@@ -42,8 +42,8 @@ export default function Register () {
      }
    };
 
-const usernameValidator = (username) => {
-  if (username.length <= 1) {
+const usernameValidator = () => {
+  if (values.username.length < 1) {
     setError((state) => ({
       ...state,
       invalidUsername: "Username should be more than 1 characters",
@@ -121,7 +121,7 @@ let isValidForm = Object.values(error).some((el) => el == "")
                   name="email"
                   onChange={(e) => {
                     onChange(e);
-                    emailValidator(e.target.value);
+                    emailValidator();
                   }}
                   value={values.email}
                   // onBlur={emailValidator}
@@ -138,7 +138,7 @@ let isValidForm = Object.values(error).some((el) => el == "")
                   name="username"
                   onChange={(e) => {
                     onChange(e);
-                    usernameValidator(e.target.value);
+                    usernameValidator();
                   }}
                   value={values.username}
                 />

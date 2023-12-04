@@ -1,5 +1,5 @@
 
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styles from '../Profile/Profile.module.css';
 import { useContext, useEffect, useMemo, useReducer, useState } from 'react';
 import * as authService from '../../services/authService'
@@ -17,16 +17,31 @@ export default function Profile () {
     // const [feedback,setFeedback] = useState([]);
     const [feedback,dispatch] = useReducer(reducer,[])
     const { email,_id } = useContext(AuthContext);
+    const navigate = useNavigate()
 
 
+    let currentUsers = []
     useEffect(() => {
             authService.getUserById()
             .then(res => {
+               console.log(Object.values(res))
+               for (const el of Object.values(res)) {
+                  currentUsers.push(el.res._id)
+               }
+               if(!currentUsers.includes(userId)){
+                navigate('/')
+               }
+               console.log(currentUsers)
                 for (const user of res) {
                     if(user.res._id === userId){
                         setUser(user.res)
+                        // console.log(res)
                     }
                 }
+                
+            })
+            .catch(err => {
+              navigate('/')
             })
 
             feedBackService.getAll(userId)
@@ -38,7 +53,7 @@ export default function Profile () {
             });
     },[userId]);
 
-    console.log(feedback);
+    // console.log(feedback);
 
     const addFeedbackHandler = async(values) => {
         const newFeedback = await feedBackService.create(
