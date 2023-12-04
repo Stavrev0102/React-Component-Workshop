@@ -11,9 +11,9 @@ export default function Catalog () {
     useEffect(() => {
         productService.getAll()
         .then((res) => {
+          setIsLoading(false)
           setProducts(res);
           
-          setIsLoading(false)
           return
         })
         .catch(err => console.log(err));
@@ -22,7 +22,9 @@ export default function Catalog () {
     console.log(products);
     return (
       <section  className={styles.dashboard}>
+        <div className={styles.spinner}>
           {isLoading === true && <Spinner/>}
+        </div>
         <h2>Store</h2>
         <ul className={styles.cardWrapper}>
           {/* Display a li with information about every post (if any)*/}

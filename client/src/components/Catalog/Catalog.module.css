@@ -93,3 +93,6 @@
  padding: 0.3em;
  color:rgb(132, 150, 230)
 }
+.spinner :nth-child(1) {
+  margin-left: 40%;
+}

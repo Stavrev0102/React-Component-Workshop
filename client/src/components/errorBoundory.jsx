@@ -1,5 +1,6 @@
 
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 
 export default class ErrorBoundory extends Component {
@@ -21,7 +22,11 @@ export default class ErrorBoundory extends Component {
     }
     render(){
         if(this.state.hasError){
-            return <h1>404</h1>
+            
+            return  <div className="error">
+            <h1>404</h1>
+            {/* <Link to={'/'}></Link> */}
+        </div>
         }
         return(
             this.props.children

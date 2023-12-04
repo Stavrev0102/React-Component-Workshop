@@ -8,6 +8,7 @@ import AuthContext from '../../context/authContext';
 
 import * as feedBackService from '../../services/feedBackService'
 import reducer from './feedbackReducer';
+import Spinner from '../Spinner/Spinner';
  
 
 export default function Profile () {
@@ -17,10 +18,11 @@ export default function Profile () {
     // const [feedback,setFeedback] = useState([]);
     const [feedback,dispatch] = useReducer(reducer,[])
     const { email,_id } = useContext(AuthContext);
-    const navigate = useNavigate()
-
-
+    const navigate = useNavigate();
+    const [isLoading,setIsLoading] = useState(true);
     let currentUsers = []
+
+
     useEffect(() => {
             authService.getUserById()
             .then(res => {
@@ -32,16 +34,17 @@ export default function Profile () {
                 navigate('/')
                }
                console.log(currentUsers)
-                for (const user of res) {
-                    if(user.res._id === userId){
-                        setUser(user.res)
+               for (const user of res) {
+                 if(user.res._id === userId){
+                   setUser(user.res)
+                   setIsLoading(false)
                         // console.log(res)
                     }
                 }
                 
             })
             .catch(err => {
-              navigate('/')
+             console.log(err.message)
             })
 
             feedBackService.getAll(userId)
@@ -80,6 +83,9 @@ export default function Profile () {
     }
     return (
       <div className={styles.wrapper}>
+        <div className={styles.spinner}>
+          {isLoading === true && <Spinner/>}
+        </div>
         <div className="row d-flex justify-content-center">
           <div className="col-md-7">
             <div className={styles.card}>
