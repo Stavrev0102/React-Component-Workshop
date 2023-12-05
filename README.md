@@ -3,11 +3,14 @@ React-Component Workshop
 
 This is simple React app with Vite and Node.js as a backend.
 
+ First way.
 1.Clone repository.
 2.Open client terminal and install node modules (npm install node modules).
 3.In client terminal run: npm run dev.
 4.Open server terminal and start server (node server.js).
 5.Open http://localhost:5173/
+
+open https://exapmle-react-project.web.app/ deployed version
 
 Functionality
 
