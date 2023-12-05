@@ -67,39 +67,34 @@ const phoneValidator = () => {
   }
 };
 const passwordsValidator = () => {
+  setError((state) => ({
+    ...state,
+    smallPass: "",
+    includeSpecialSymbol: "",
+    passwordsDissmatch: "",
+  }));
 
   if (values.password.length <= 8) {
-    console.log('small')
     setError((state) => ({
       ...state,
       smallPass: "Password should be at least 8 chars",
     }));
-    if(!values.password.includes('@')) {
+
+    if (!values.password.includes('@')) {
       setError((state) => ({
         ...state,
-        includeSpecialSymbol: "Password should includes special symbol @",
+        includeSpecialSymbol: "Password should include special symbol @",
       }));
     }
-  } else {
-    if(error.includeSpecialSymbol){
-      setError((state) => ({ ...state, includeSpecialSymbol: "" }));
-    }
-    if (error.smallPass) {
-      setError((state) => ({ ...state, smallPass: "" }));
-    }
-  };
-  if(values.password !== values.rePassword){
+  }
+
+  if (values.password !== values.rePassword) {
     setError((state) => ({
       ...state,
-      passwordsDissmatch: "Passwords does not match!",
+      passwordsDissmatch: "Passwords do not match!",
     }));
-  } else {
-    if (error.passwordsDissmatch) {
-      setError((state) => ({ ...state, passwordsDissmatch: "" }));
-    }
   }
-  
-}
+};
 // let isValidForm = false
 // Object.values(error).some((el) => el !== "")
 let isValidForm = Object.values(error).some((el) => el == "")
@@ -123,6 +118,7 @@ let isValidForm = Object.values(error).some((el) => el == "")
                     onChange(e);
                     emailValidator();
                   }}
+                  // onBlur={emailValidator}
                   value={values.email}
                   // onBlur={emailValidator}
                 />
@@ -169,8 +165,11 @@ let isValidForm = Object.values(error).some((el) => el == "")
                   placeholder="Enter your password"
                   required=""
                   name="password"
-                  onChange={onChange}
-                  onBlur={passwordsValidator}
+                  onChange={(e) => {
+                    onChange(e);
+                    passwordsValidator()
+                  }} 
+                  // onBlur={passwordsValidator}
                   value={values.password}
                 />
                 {error.smallPass && (
