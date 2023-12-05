@@ -16,8 +16,15 @@ export default function useForm(submitHandler,initialValues){
 
     const onSubmit = (e) => {
         e.preventDefault();
-
         submitHandler(values)
+        
+        if(values.feedback) {
+
+            setValues(state => ({
+                ...state,
+                feedback:''
+            }))
+        }
     }
         
     return {

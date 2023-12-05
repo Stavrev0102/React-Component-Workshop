@@ -57,6 +57,7 @@ export default function Profile () {
     },[userId]);
 
     // console.log(feedback);
+    // const [feedbacks,setFeedback] = useState('');
 
     const addFeedbackHandler = async(values) => {
         const newFeedback = await feedBackService.create(
@@ -65,17 +66,17 @@ export default function Profile () {
           );
             // setFeedback(state => [...state,{...newFeedback, owner:{ email } }])
             newFeedback.owner = {email};
+            // setFeedback('')
 
             dispatch({
               type:'CREATE_FEEDBACK',
               payload:newFeedback
             })
+
     }
 
-    const initialValues = useMemo(() => ({
-        feedback:'',
-    }),[])
-    const {values,onChange,onSubmit} = useForm(addFeedbackHandler,initialValues)
+    
+    const {values,onChange,onSubmit} = useForm(addFeedbackHandler,'')
 
     const contactClickHandler = () => {
       const confirmation = confirm(`Phone Number : ${user.phoneNumber}`)
@@ -152,7 +153,7 @@ export default function Profile () {
                         className={styles.textArea}
                         name="feedback"
                         placeholder="What is your experience with this user..."
-                        value={values.comment}
+                        value={values.feedback}
                         onChange={onChange}
                         required
                       />
