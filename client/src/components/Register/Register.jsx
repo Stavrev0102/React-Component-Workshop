@@ -97,7 +97,15 @@ const passwordsValidator = () => {
 };
 // let isValidForm = false
 // Object.values(error).some((el) => el !== "")
-let isValidForm = Object.values(error).some((el) => el == "")
+const [isValid,setIsValid] = useState(false);
+
+// let isValidForm = Object.values(error).some((el) => el !== "");
+// let isValidForm = Object.values(error).some((el) => el === "");
+
+let isValidForm = (Object.values(error).every(error => error === ''));
+
+  console.log(Object.values(error));
+  // console.log(isValidForm)
 
  
     return (
@@ -118,9 +126,10 @@ let isValidForm = Object.values(error).some((el) => el == "")
                     onChange(e);
                     emailValidator();
                   }}
+                  // onTouchStart={emailValidator}
                   // onBlur={emailValidator}
                   value={values.email}
-                  // onBlur={emailValidator}
+                 
                 />
                 {error.invalidEmail && (
                   <p className={styles.errorMessage}>{error.invalidEmail}</p>
@@ -194,7 +203,7 @@ let isValidForm = Object.values(error).some((el) => el == "")
                   <p className={styles.errorMessage}>{error.passwordsDissmatch}</p>
                 )}
               </div>
-                  {isValidForm && (
+                  {(isValidForm || !invalid) && (
                     <button className={styles.button} role="button">
                     Register
                   </button>

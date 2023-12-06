@@ -35,7 +35,13 @@ export const AuthProvider = ({
               invalid:'A user with the same email already exists'
             }))
           
-          } else {
+          } else if (error.status === 400) {
+            setErrors((state) => ({
+              ...state,
+              invalid:'Please fill all fields!'
+            }))
+          } 
+          else {
             if (error.invalid) {
               setErrors(state => ({ ...state, invalid: '' }));
           }

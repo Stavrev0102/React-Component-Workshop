@@ -12,7 +12,7 @@ This is simple React app with Vite and Node.js as a backend.
 
 Second way:
 1.Open https://exapmle-react-project.web.app/ deployed version.
-2.4.Open server terminal and start server (node server.js).
+2.Open server terminal and start server (node server.js).
 
 
 Functionality
