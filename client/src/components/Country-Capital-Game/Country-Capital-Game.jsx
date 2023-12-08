@@ -13,8 +13,9 @@ export default function CountryCapitalGame() {
         useEffect(() => {
           countriesService.getAllCountries().then(res => {
             const fin = delete res[0]._id;
-            console.log(res)
+            // console.log(res)
             const findalData = { ...res[0] };
+            //data
             setData(findalData);
       
             const country = Object.keys(findalData);
@@ -25,6 +26,7 @@ export default function CountryCapitalGame() {
             }
       
             setOptions(
+                //options
               [...country, ...capital].map(value => ({
                 value,
                 state: 'DEFAULT',
@@ -33,8 +35,8 @@ export default function CountryCapitalGame() {
           });
         }, []);
       
-        console.log(data);
-        console.log('dd');
+        // console.log(data);
+        // console.log('dd');
       
         const isGameOver = options.length === 0 && Object.keys(data).length > 0;
       
