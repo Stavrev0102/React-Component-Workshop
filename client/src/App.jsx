@@ -23,6 +23,7 @@ import AuthGuard from "./components/guards/AuthGuard";
 import GuessGuard from "./components/guards/GuessGuard";
 import ErrorPath from "./components/ErrorPath/ErrorPath";
 import About from "./components/About/About";
+import CountryCapitalGame from "./components/Country-Capital-Game/Country-Capital-Game";
 
 library.add(fab);
 
@@ -51,6 +52,7 @@ function App() {
               <Route element={<AuthGuard />}>
                 <Route path="/create" element={<Create />} />
                 <Route path="/logout" element={<Logout />} />
+                <Route path="/country-capital-game" element={<CountryCapitalGame/>} />
                 <Route
                   path="/catalog/details/:productId"
                   element={<Details />}

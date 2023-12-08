@@ -32,6 +32,15 @@
 }
 .imageBox {
 display: block;
-width: 30%;
+width: 40%;
 }
-
+.linkDiv {
+    border: 1px solid white;
+    width: 40%;
+    margin: 0 auto;
+    padding: 1em;
+}
+.link {
+    color: white;
+    /* width: 100%; */
+}

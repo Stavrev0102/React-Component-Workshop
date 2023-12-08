@@ -3,3 +3,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+.selected {
+    background-color: #009bff;
+  }
+  .wrong {
+    background: rgb(215, 22, 22)
+  }

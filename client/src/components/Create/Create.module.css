@@ -50,7 +50,7 @@ button {
     font-size: 1em;
     text-align: center;
     margin: 1em;
-    background-color: rgb(218, 191, 242);
+    /* background-color: rgb(218, 191, 242); */
 }
 .submit {
     border-radius: 0.4em;
