@@ -35,6 +35,7 @@ Authenticated user
 8.See details of products and who own it.
 9.Can write and read feedback for current user.
 
-
+Country-Capital Game
+ On home page if you are authenticated you can play simple game. Chek it
 
 
