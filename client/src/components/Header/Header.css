@@ -277,7 +277,7 @@ body {
   }
 .burger-menu__icon {
   display:block;
-  margin-left: 13em;
+  margin-left: 12em;
   cursor: pointer;
 }
 .burger-menu__icon:hover {
