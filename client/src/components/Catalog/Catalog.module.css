@@ -27,6 +27,9 @@
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
+    border: 3px solid rgb(110, 110, 117);
+    margin: 0.5em;
+    border-radius: 0.4em;
   }
   
   .cardWrapper h2 {

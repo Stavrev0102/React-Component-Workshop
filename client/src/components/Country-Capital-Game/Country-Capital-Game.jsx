@@ -79,18 +79,19 @@ export default function CountryCapitalGame() {
         }
     
     return (
-
+        <>
+        <h1 className={styles.h1quiz}>Simple Quiz</h1>
         <div className={styles.button}>
-        <h1>Simple Quiz</h1>
         {options.map((option) => (
-            // eslint-disable-next-line react/jsx-key
-            <button 
-            className={ setClass(option)}
-            key={option.value}
-            onClick={() => onButtonClick(option)}
-            >{option.value}</button>
-        ) )}
+          // eslint-disable-next-line react/jsx-key
+          <button 
+          className={ setClass(option)}
+          key={option.value}
+          onClick={() => onButtonClick(option)}
+          >{option.value}</button>
+          ) )}
     </div>
+          </>
     )
     
 }

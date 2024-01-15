@@ -19,7 +19,6 @@ export default function Catalog () {
         .catch(err => console.log(err));
     },[])
     
-    console.log(products);
     return (
       <section  className={styles.dashboard}>
         <div className={styles.spinner}>
