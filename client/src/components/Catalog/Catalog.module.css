@@ -30,6 +30,10 @@
     border: 3px solid rgb(110, 110, 117);
     margin: 0.5em;
     border-radius: 0.4em;
+    gap:0.4em;
+    padding: 0 0.4em;
+    /* gap:0.1em; */
+    /* gap: 1px; */
   }
   
   .cardWrapper h2 {
@@ -44,20 +48,22 @@
   .card {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    max-width: 23%;
-    height: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    flex:1 1 20%;
+    /* height: acarto; */
     margin: 25px auto;
     padding: 10px 0;
     background-color: white;
     border-radius: 5px;
     border: 2px ridge rgb(210, 208, 208);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.24);
+    align-items: center;
   }
   
   .detailsBtn {
     text-decoration: none;
-    margin: auto 50px;
+    /* margin: auto 50px; */
     font-size: 21px;
     width: 130px;
     padding: 10px;
@@ -83,12 +89,13 @@
 .from {
   border: 1px solid rgb(192, 191, 191);
   border-radius: 0.4em;
+  flex: 0 0 auto;
   text-align: center;
   background-color: #eef5f5;
   padding: 0.4em;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 1.2em;
-  margin: 0;
+  margin: 0.3em;
   /* padding: 0; */
 }
 .anchor {
@@ -99,3 +106,13 @@
 .spinner :nth-child(1) {
   margin-left: 40%;
 }
+ @media (max-width:530px) {
+    .card {
+      /* border: 1px solid red; */
+      text-align: center;
+      flex:1 1 100%;
+    }
+    .cardWrapper {
+      padding: 0.5em;
+    }
+ }
