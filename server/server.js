@@ -1334,12 +1334,34 @@
     			email: "admin@abv.bg",
     			username: "Admin",
     			hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
-    		}
+    		},
+            
     	},
     	sessions: {
-    	}
+    	},
     };
-    var seedData = {};
+    var seedData = {
+        products: {
+            "34b027e4-5d9c-48c4-84c7-06985c98fbda": {
+                _ownerId: "34b027e4-5d9c-48c4-84c7-06985c98fbda",
+                brand: "Apple",
+                model: "Iphone 14 Pro Max",
+                imageUrl: "https://nixanbal.com/images/2022_new/Apple-iPhone-14-Pro-iPhone-14-Pro-Max-deep-purple-220907_inline.jpg.large_2x.jpg",
+                color: "Purple",
+                bytes: "256",
+                price: "1900",
+                "vin-number": "BR-132-1211",
+                "size-screen": "6.7",
+                processor: "hexa-core",
+                "released-date": "16.09.2022",
+                description: "The iPhone 14 Pro Max comes with a large 6.7-inch Liquid Retina XDR OLED display with 1-120Hz refresh rate and an always-on display functionality. The phone comes Apple's new A16 Bionic chipset, 6GB of LPDDR5 RAM, and will available in the following storage variants: 128GB, 256GB, 512GB, and the range-topping 1TB version.",
+                ownerEmail: "stavrev0102@gmail.com",
+                _createdOn: 1705337291593,
+                _id: "447abbcf-1254-4d47-a8fe-fcfd1ce17a18"
+            } 
+        },
+       
+    };
     var rules$1 = {
     	users: {
     		".create": false,
